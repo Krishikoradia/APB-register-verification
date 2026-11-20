@@ -4,12 +4,14 @@ import uvm_pkg::*;
 `include "apb_if.sv"
 `include "apb_item.sv"
 `include "apb_driver.sv"
+`include "apb_monitor.sv"
 `include "apb_sequences.sv"
 
-class drv_test extends uvm_test;
-  `uvm_component_utils(drv_test)
+class mon_test extends uvm_test;
+  `uvm_component_utils(mon_test)
   uvm_sequencer #(apb_item) sqr;
-  apb_driver drv;
+  apb_driver  drv;
+  apb_monitor mon;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
@@ -19,6 +21,7 @@ class drv_test extends uvm_test;
     super.build_phase(phase);
     sqr = uvm_sequencer#(apb_item)::type_id::create("sqr", this);
     drv = apb_driver::type_id::create("drv", this);
+    mon = apb_monitor::type_id::create("mon", this);
   endfunction
 
   function void connect_phase(uvm_phase phase);
@@ -58,6 +61,6 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-    run_test("drv_test");
+    run_test("mon_test");
   end
 endmodule

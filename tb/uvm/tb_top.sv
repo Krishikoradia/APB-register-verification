@@ -2,18 +2,24 @@
 `include "uvm_macros.svh"
 import uvm_pkg::*;
 `include "apb_if.sv"
+`include "apb_item.sv"
 
-class hello_test extends uvm_test;
-  `uvm_component_utils(hello_test)
+class item_test extends uvm_test;
+  `uvm_component_utils(item_test)
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction
 
   task run_phase(uvm_phase phase);
+    apb_item item;
     phase.raise_objection(this);
-    `uvm_info("HELLO", "UVM is running", UVM_NONE)
-    #50ns;
+    repeat (5) begin
+      item = apb_item::type_id::create("item");
+      if (!item.randomize()) `uvm_error("ITEM", "randomize failed")
+      `uvm_info("ITEM", $sformatf("addr=0x%02h write=%0b wdata=0x%08h",
+                                  item.addr, item.write, item.wdata), UVM_NONE)
+    end
     phase.drop_objection(this);
   endtask
 endclass
@@ -39,5 +45,5 @@ module tb_top;
     PRESETn = 1;
   end
 
-  initial run_test("hello_test");
+  initial run_test("item_test");
 endmodule

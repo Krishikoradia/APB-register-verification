@@ -1,0 +1,5 @@
+*.vcd
+*.wlf
+qrun.out/
+transcript
+.DS_Store

@@ -3,6 +3,7 @@
 import uvm_pkg::*;
 `include "apb_if.sv"
 `include "apb_item.sv"
+`include "apb_reg_model.sv"
 `include "apb_driver.sv"
 `include "apb_monitor.sv"
 `include "apb_sequences.sv"
@@ -51,6 +52,37 @@ class rand_test extends env_test;
   endtask
 endclass
 
+class ral_model_test extends uvm_test;
+  `uvm_component_utils(ral_model_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+  endfunction
+
+  task run_phase(uvm_phase phase);
+    apb_ral_block m;
+    uvm_reg       regs[$];
+    uvm_reg_field flds[$];
+    phase.raise_objection(this);
+
+    m = apb_ral_block::type_id::create("m");
+    m.build();
+    m.get_registers(regs);
+    m.get_fields(flds);
+
+    `uvm_info("RAL", $sformatf("registers=%0d fields=%0d", regs.size(), flds.size()), UVM_NONE)
+    foreach (regs[i])
+      `uvm_info("RAL", $sformatf("REG   %-11s addr=0x%02h reset=0x%08h",
+                regs[i].get_name(), regs[i].get_address(), regs[i].get_reset()), UVM_NONE)
+    foreach (flds[i])
+      `uvm_info("RAL", $sformatf("FIELD %-11s.%-6s lsb=%0d bits=%0d access=%s reset=0x%0h",
+                flds[i].get_parent().get_name(), flds[i].get_name(), flds[i].get_lsb_pos(),
+                flds[i].get_n_bits(), flds[i].get_access(), flds[i].get_reset()), UVM_NONE)
+
+    phase.drop_objection(this);
+  endtask
+endclass
+
 module tb_top;
   logic PCLK = 0;
   logic PRESETn;
@@ -74,6 +106,6 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-    run_test("rand_test");
+    run_test("ral_model_test");
   end
 endmodule

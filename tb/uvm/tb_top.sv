@@ -3,23 +3,34 @@
 import uvm_pkg::*;
 `include "apb_if.sv"
 `include "apb_item.sv"
+`include "apb_driver.sv"
+`include "apb_sequences.sv"
 
-class item_test extends uvm_test;
-  `uvm_component_utils(item_test)
+class drv_test extends uvm_test;
+  `uvm_component_utils(drv_test)
+  uvm_sequencer #(apb_item) sqr;
+  apb_driver drv;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction
 
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    sqr = uvm_sequencer#(apb_item)::type_id::create("sqr", this);
+    drv = apb_driver::type_id::create("drv", this);
+  endfunction
+
+  function void connect_phase(uvm_phase phase);
+    drv.seq_item_port.connect(sqr.seq_item_export);
+  endfunction
+
   task run_phase(uvm_phase phase);
-    apb_item item;
+    apb_wr_rd_seq seq;
     phase.raise_objection(this);
-    repeat (5) begin
-      item = apb_item::type_id::create("item");
-      if (!item.randomize()) `uvm_error("ITEM", "randomize failed")
-      `uvm_info("ITEM", $sformatf("addr=0x%02h write=%0b wdata=0x%08h",
-                                  item.addr, item.write, item.wdata), UVM_NONE)
-    end
+    seq = apb_wr_rd_seq::type_id::create("seq");
+    seq.start(sqr);
+    #50ns;
     phase.drop_objection(this);
   endtask
 endclass
@@ -45,5 +56,8 @@ module tb_top;
     PRESETn = 1;
   end
 
-  initial run_test("item_test");
+  initial begin
+    uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
+    run_test("drv_test");
+  end
 endmodule

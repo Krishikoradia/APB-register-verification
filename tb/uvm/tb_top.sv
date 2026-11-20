@@ -7,6 +7,7 @@ import uvm_pkg::*;
 `include "apb_monitor.sv"
 `include "apb_sequences.sv"
 `include "apb_agent.sv"
+`include "apb_scoreboard.sv"
 `include "apb_env.sv"
 
 class env_test extends uvm_test;

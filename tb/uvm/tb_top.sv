@@ -33,6 +33,24 @@ class env_test extends uvm_test;
   endtask
 endclass
 
+class rand_test extends env_test;
+  `uvm_component_utils(rand_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+  endfunction
+
+  task run_phase(uvm_phase phase);
+    apb_rand_seq seq;
+    phase.raise_objection(this);
+    seq = apb_rand_seq::type_id::create("seq");
+    seq.n = 50;
+    seq.start(env.agent.sequencer);
+    #50ns;
+    phase.drop_objection(this);
+  endtask
+endclass
+
 module tb_top;
   logic PCLK = 0;
   logic PRESETn;
@@ -56,6 +74,6 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-    run_test("env_test");
+    run_test("rand_test");
   end
 endmodule

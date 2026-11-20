@@ -20,3 +20,22 @@ class apb_wr_rd_seq extends uvm_sequence #(apb_item);
     do_item(0, 8'h04, 32'h0);           // read STATUS
   endtask
 endclass
+
+class apb_rand_seq extends uvm_sequence #(apb_item);
+  `uvm_object_utils(apb_rand_seq)
+  int unsigned n = 20;
+
+  function new(string name = "apb_rand_seq");
+    super.new(name);
+  endfunction
+
+  task body();
+    apb_item t;
+    repeat (n) begin
+      t = apb_item::type_id::create("t");
+      start_item(t);
+      if (!t.randomize()) `uvm_error("SEQ", "randomize failed")
+      finish_item(t);
+    end
+  endtask
+endclass

@@ -4,6 +4,7 @@ import uvm_pkg::*;
 `include "apb_if.sv"
 `include "apb_item.sv"
 `include "apb_reg_model.sv"
+`include "apb_reg_adapter.sv"
 `include "apb_driver.sv"
 `include "apb_monitor.sv"
 `include "apb_sequences.sv"
@@ -52,33 +53,35 @@ class rand_test extends env_test;
   endtask
 endclass
 
-class ral_model_test extends uvm_test;
-  `uvm_component_utils(ral_model_test)
+class ral_access_test extends env_test;
+  `uvm_component_utils(ral_access_test)
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction
 
   task run_phase(uvm_phase phase);
-    apb_ral_block m;
-    uvm_reg       regs[$];
-    uvm_reg_field flds[$];
+    uvm_status_e   st;
+    uvm_reg_data_t rd;
     phase.raise_objection(this);
 
-    m = apb_ral_block::type_id::create("m");
-    m.build();
-    m.get_registers(regs);
-    m.get_fields(flds);
+    env.regmodel.ctrl.write(st, 32'hA5);
+    env.regmodel.ctrl.read (st, rd);
+    #1ns;
+    `uvm_info("RAL", $sformatf("CTRL read=0x%08h mirror=0x%08h",
+              rd, env.regmodel.ctrl.get_mirrored_value()), UVM_NONE)
 
-    `uvm_info("RAL", $sformatf("registers=%0d fields=%0d", regs.size(), flds.size()), UVM_NONE)
-    foreach (regs[i])
-      `uvm_info("RAL", $sformatf("REG   %-11s addr=0x%02h reset=0x%08h",
-                regs[i].get_name(), regs[i].get_address(), regs[i].get_reset()), UVM_NONE)
-    foreach (flds[i])
-      `uvm_info("RAL", $sformatf("FIELD %-11s.%-6s lsb=%0d bits=%0d access=%s reset=0x%0h",
-                flds[i].get_parent().get_name(), flds[i].get_name(), flds[i].get_lsb_pos(),
-                flds[i].get_n_bits(), flds[i].get_access(), flds[i].get_reset()), UVM_NONE)
+    env.regmodel.data.write(st, 32'hCAFE_1234);
+    env.regmodel.data.read (st, rd);
+    #1ns;
+    `uvm_info("RAL", $sformatf("DATA read=0x%08h mirror=0x%08h",
+              rd, env.regmodel.data.get_mirrored_value()), UVM_NONE)
 
+    env.regmodel.status.read(st, rd);
+    #1ns;
+    `uvm_info("RAL", $sformatf("STATUS read=0x%08h", rd), UVM_NONE)
+
+    #50ns;
     phase.drop_objection(this);
   endtask
 endclass
@@ -106,6 +109,6 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-    run_test("ral_model_test");
+    run_test("ral_access_test");
   end
 endmodule

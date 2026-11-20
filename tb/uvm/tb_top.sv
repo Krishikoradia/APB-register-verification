@@ -6,12 +6,12 @@ import uvm_pkg::*;
 `include "apb_driver.sv"
 `include "apb_monitor.sv"
 `include "apb_sequences.sv"
+`include "apb_agent.sv"
+`include "apb_env.sv"
 
-class mon_test extends uvm_test;
-  `uvm_component_utils(mon_test)
-  uvm_sequencer #(apb_item) sqr;
-  apb_driver  drv;
-  apb_monitor mon;
+class env_test extends uvm_test;
+  `uvm_component_utils(env_test)
+  apb_env env;
 
   function new(string name, uvm_component parent);
     super.new(name, parent);
@@ -19,20 +19,14 @@ class mon_test extends uvm_test;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    sqr = uvm_sequencer#(apb_item)::type_id::create("sqr", this);
-    drv = apb_driver::type_id::create("drv", this);
-    mon = apb_monitor::type_id::create("mon", this);
-  endfunction
-
-  function void connect_phase(uvm_phase phase);
-    drv.seq_item_port.connect(sqr.seq_item_export);
+    env = apb_env::type_id::create("env", this);
   endfunction
 
   task run_phase(uvm_phase phase);
     apb_wr_rd_seq seq;
     phase.raise_objection(this);
     seq = apb_wr_rd_seq::type_id::create("seq");
-    seq.start(sqr);
+    seq.start(env.agent.sequencer);
     #50ns;
     phase.drop_objection(this);
   endtask
@@ -61,6 +55,6 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-    run_test("mon_test");
+    run_test("env_test");
   end
 endmodule

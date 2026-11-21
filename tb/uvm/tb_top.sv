@@ -11,6 +11,9 @@ import uvm_pkg::*;
 `include "apb_agent.sv"
 `include "apb_scoreboard.sv"
 `include "apb_env.sv"
+`include "apb_sva.sv"
+
+bind apb_reg_block apb_sva u_apb_sva (.*);
 
 class env_test extends uvm_test;
   `uvm_component_utils(env_test)

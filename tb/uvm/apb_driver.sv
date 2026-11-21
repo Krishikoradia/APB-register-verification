@@ -38,5 +38,7 @@ class apb_driver extends uvm_driver #(apb_item);
       `uvm_info("DRV", $sformatf("WRITE addr=0x%02h data=0x%08h", t.addr, t.wdata), UVM_NONE)
     else
       `uvm_info("DRV", $sformatf("READ  addr=0x%02h data=0x%08h", t.addr, t.rdata), UVM_NONE)
+    // optional idle cycles before the next transfer
+    repeat (t.idle) @(posedge vif.PCLK);
   endtask
 endclass

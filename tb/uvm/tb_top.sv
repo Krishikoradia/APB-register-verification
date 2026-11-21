@@ -86,6 +86,35 @@ class ral_access_test extends env_test;
   endtask
 endclass
 
+class ral_builtin_test extends env_test;
+  `uvm_component_utils(ral_builtin_test)
+
+  function new(string name, uvm_component parent);
+    super.new(name, parent);
+  endfunction
+
+  task run_phase(uvm_phase phase);
+    uvm_reg_hw_reset_seq rst_seq;
+    uvm_reg_bit_bash_seq bb_seq;
+    phase.raise_objection(this);
+
+    `uvm_info("RAL", "START built-in reset test", UVM_NONE)
+    rst_seq = uvm_reg_hw_reset_seq::type_id::create("rst_seq");
+    rst_seq.model = env.regmodel;
+    rst_seq.start(null);
+    `uvm_info("RAL", "DONE  built-in reset test", UVM_NONE)
+
+    `uvm_info("RAL", "START built-in bit-bash test", UVM_NONE)
+    bb_seq = uvm_reg_bit_bash_seq::type_id::create("bb_seq");
+    bb_seq.model = env.regmodel;
+    bb_seq.start(null);
+    `uvm_info("RAL", "DONE  built-in bit-bash test", UVM_NONE)
+
+    #50ns;
+    phase.drop_objection(this);
+  endtask
+endclass
+
 module tb_top;
   logic PCLK = 0;
   logic PRESETn;
@@ -109,6 +138,6 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-    run_test("ral_access_test");
+    run_test("ral_builtin_test");
   end
 endmodule

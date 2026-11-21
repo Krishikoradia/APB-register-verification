@@ -1,7 +1,10 @@
+`include "apb_coverage.sv"
+
 class apb_env extends uvm_env;
   `uvm_component_utils(apb_env)
   apb_agent                     agent;
   apb_scoreboard                scb;
+  apb_coverage                  cov;
   apb_ral_block                 regmodel;
   apb_reg_adapter               adapter;
   uvm_reg_predictor #(apb_item) predictor;
@@ -14,6 +17,7 @@ class apb_env extends uvm_env;
     super.build_phase(phase);
     agent     = apb_agent::type_id::create("agent", this);
     scb       = apb_scoreboard::type_id::create("scb", this);
+    cov       = apb_coverage::type_id::create("cov", this);
     regmodel  = apb_ral_block::type_id::create("regmodel");
     regmodel.build();
     adapter   = apb_reg_adapter::type_id::create("adapter");
@@ -22,6 +26,7 @@ class apb_env extends uvm_env;
 
   function void connect_phase(uvm_phase phase);
     agent.monitor.ap.connect(scb.item_export);
+    agent.monitor.ap.connect(cov.analysis_export);
     agent.monitor.ap.connect(predictor.bus_in);
     predictor.map     = regmodel.default_map;
     predictor.adapter = adapter;

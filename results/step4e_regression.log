@@ -1,0 +1,1624 @@
+[2026-11-21 07:18:59 UTC] qrun -batch -access=rw+/. -uvmhome uvm-1.2 '-timescale' '1ns/1ns' -mfcu design.sv testbench.sv '-voptargs=+acc=npr'  -do  " run -all; exit"  
+QuestaSim-64 qrun 2025.2 Utility 2025.05 May 31 2025
+Start time: 02:18:59 on Nov 21,2026
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+** Note: (qrun-220) 'modelsim.ini' is used as the ini file.
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+** Note: (vmap-220) 'modelsim.ini' is used as the ini file.
+QuestaSim-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+Start time: 02:18:59 on Nov 21,2026
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -csession=incr 
+** Note: (vlog-220) 'modelsim.ini' is used as the ini file.
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling module apb_reg_block
+-- Compiling package uvm_pkg_sv_unit
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling interface apb_if
+-- Compiling module tb_top
+
+Top level modules:
+	tb_top
+** Note: (vlog-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+End time: 02:19:03 on Nov 21,2026, Elapsed time: 0:00:04
+Errors: 0, Warnings: 0
+QuestaSim-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 02:19:03 on Nov 21,2026
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+2+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+** Note: (vopt-220) 'modelsim.ini' is used as the ini file.
+
+Top level modules:
+	tb_top
+
+Analyzing design...
+-- Loading module tb_top
+-- Loading package questa_uvm_pkg
+-- Loading interface apb_if
+-- Loading module apb_reg_block
+Optimizing 7 design-units (inlining 0/3 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package uvm_pkg_sv_unit(fast)
+-- Optimizing module apb_reg_block(fast)
+-- Optimizing module tb_top(fast)
+-- Optimizing interface apb_if(fast__2)
+-- Optimizing interface apb_if(fast)
+Optimized design name is qrun_opt
+End time: 02:19:13 on Nov 21,2026, Elapsed time: 0:00:10
+Errors: 0, Warnings: 1
+# ** Note: (vsim-220) 'modelsim.ini' is used as the ini file.
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 02:19:13 on Nov 21,2026
+# Loading /tmp/root@ac188a0520a3_dpi_34/linux_x86_64_gcc-11/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2025.2 linux_x86_64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.apb_if(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.uvm_pkg_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.apb_if(fast__2)
+# Loading work.apb_reg_block(fast)
+# ** Note: (vsim-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
+# Compiling /tmp/root@ac188a0520a3_dpi_34/linux_x86_64_gcc-11/exportwrapper.c
+# Loading /tmp/root@ac188a0520a3_dpi_34/linux_x86_64_gcc-11/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test regression_test...
+# UVM_INFO testbench.sv(211) @ 45000: uvm_test_top [RAL] START reset test
+# UVM_INFO @ 45000: reporter@@rst_seq [STARTING_SEQ] 
+# 
+# Starting rst_seq sequence...
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 45000: reporter@@rst_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.int_status in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(29) @ 65000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 65000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 65000: reporter@@rst_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.data in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(29) @ 85000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 85000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 85000: reporter@@rst_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.status in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(29) @ 105000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 105000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 105000: reporter@@rst_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.ctrl in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(29) @ 125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO testbench.sv(216) @ 125000: uvm_test_top [RAL] START bit-bash test
+# UVM_INFO @ 125000: reporter@@bb_seq [STARTING_SEQ] 
+# 
+# Starting bb_seq sequence...
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_bit_bash_seq.svh(128) @ 125000: reporter@@bb_seq.reg_single_bit_bash_seq [uvm_reg_bit_bash_seq] Verifying bits in register regmodel.int_status in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(27) @ 145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000001
+# UVM_INFO apb_driver.sv(38) @ 145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000001
+# UVM_INFO apb_driver.sv(38) @ 185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000002
+# UVM_INFO apb_driver.sv(38) @ 225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000002
+# UVM_INFO apb_monitor.sv(29) @ 245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000002
+# UVM_INFO apb_driver.sv(38) @ 265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000002
+# UVM_INFO apb_monitor.sv(29) @ 285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000004
+# UVM_INFO apb_driver.sv(38) @ 305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000004
+# UVM_INFO apb_monitor.sv(29) @ 325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000004
+# UVM_INFO apb_driver.sv(38) @ 345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000004
+# UVM_INFO apb_monitor.sv(29) @ 365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000008
+# UVM_INFO apb_driver.sv(38) @ 385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000008
+# UVM_INFO apb_monitor.sv(29) @ 405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000008
+# UVM_INFO apb_driver.sv(38) @ 425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000008
+# UVM_INFO apb_monitor.sv(29) @ 445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000010
+# UVM_INFO apb_driver.sv(38) @ 465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000010
+# UVM_INFO apb_monitor.sv(29) @ 485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000010
+# UVM_INFO apb_driver.sv(38) @ 505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000010
+# UVM_INFO apb_monitor.sv(29) @ 525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000020
+# UVM_INFO apb_driver.sv(38) @ 545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000020
+# UVM_INFO apb_monitor.sv(29) @ 565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000020
+# UVM_INFO apb_driver.sv(38) @ 585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000020
+# UVM_INFO apb_monitor.sv(29) @ 605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000040
+# UVM_INFO apb_driver.sv(38) @ 625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000040
+# UVM_INFO apb_monitor.sv(29) @ 645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000040
+# UVM_INFO apb_driver.sv(38) @ 665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000040
+# UVM_INFO apb_monitor.sv(29) @ 685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000080
+# UVM_INFO apb_driver.sv(38) @ 705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000080
+# UVM_INFO apb_monitor.sv(29) @ 725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000080
+# UVM_INFO apb_driver.sv(38) @ 745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000080
+# UVM_INFO apb_monitor.sv(29) @ 765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000100
+# UVM_INFO apb_driver.sv(38) @ 785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000100
+# UVM_INFO apb_monitor.sv(29) @ 805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000100
+# UVM_INFO apb_driver.sv(38) @ 825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000100
+# UVM_INFO apb_monitor.sv(29) @ 845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000200
+# UVM_INFO apb_driver.sv(38) @ 865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000200
+# UVM_INFO apb_monitor.sv(29) @ 885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000200
+# UVM_INFO apb_driver.sv(38) @ 905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000200
+# UVM_INFO apb_monitor.sv(29) @ 925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000400
+# UVM_INFO apb_driver.sv(38) @ 945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000400
+# UVM_INFO apb_monitor.sv(29) @ 965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000400
+# UVM_INFO apb_driver.sv(38) @ 985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000400
+# UVM_INFO apb_monitor.sv(29) @ 1005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000800
+# UVM_INFO apb_driver.sv(38) @ 1025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000800
+# UVM_INFO apb_monitor.sv(29) @ 1045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000800
+# UVM_INFO apb_driver.sv(38) @ 1065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000800
+# UVM_INFO apb_monitor.sv(29) @ 1085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00001000
+# UVM_INFO apb_driver.sv(38) @ 1105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00001000
+# UVM_INFO apb_monitor.sv(29) @ 1125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00001000
+# UVM_INFO apb_driver.sv(38) @ 1145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00001000
+# UVM_INFO apb_monitor.sv(29) @ 1165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00002000
+# UVM_INFO apb_driver.sv(38) @ 1185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00002000
+# UVM_INFO apb_monitor.sv(29) @ 1205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00002000
+# UVM_INFO apb_driver.sv(38) @ 1225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00002000
+# UVM_INFO apb_monitor.sv(29) @ 1245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00004000
+# UVM_INFO apb_driver.sv(38) @ 1265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00004000
+# UVM_INFO apb_monitor.sv(29) @ 1285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00004000
+# UVM_INFO apb_driver.sv(38) @ 1305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00004000
+# UVM_INFO apb_monitor.sv(29) @ 1325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00008000
+# UVM_INFO apb_driver.sv(38) @ 1345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00008000
+# UVM_INFO apb_monitor.sv(29) @ 1365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00008000
+# UVM_INFO apb_driver.sv(38) @ 1385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00008000
+# UVM_INFO apb_monitor.sv(29) @ 1405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00010000
+# UVM_INFO apb_driver.sv(38) @ 1425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00010000
+# UVM_INFO apb_monitor.sv(29) @ 1445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00010000
+# UVM_INFO apb_driver.sv(38) @ 1465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00010000
+# UVM_INFO apb_monitor.sv(29) @ 1485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00020000
+# UVM_INFO apb_driver.sv(38) @ 1505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00020000
+# UVM_INFO apb_monitor.sv(29) @ 1525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00020000
+# UVM_INFO apb_driver.sv(38) @ 1545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00020000
+# UVM_INFO apb_monitor.sv(29) @ 1565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00040000
+# UVM_INFO apb_driver.sv(38) @ 1585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00040000
+# UVM_INFO apb_monitor.sv(29) @ 1605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00040000
+# UVM_INFO apb_driver.sv(38) @ 1625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00040000
+# UVM_INFO apb_monitor.sv(29) @ 1645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00080000
+# UVM_INFO apb_driver.sv(38) @ 1665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00080000
+# UVM_INFO apb_monitor.sv(29) @ 1685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00080000
+# UVM_INFO apb_driver.sv(38) @ 1705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00080000
+# UVM_INFO apb_monitor.sv(29) @ 1725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00100000
+# UVM_INFO apb_driver.sv(38) @ 1745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00100000
+# UVM_INFO apb_monitor.sv(29) @ 1765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00100000
+# UVM_INFO apb_driver.sv(38) @ 1785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00100000
+# UVM_INFO apb_monitor.sv(29) @ 1805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00200000
+# UVM_INFO apb_driver.sv(38) @ 1825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00200000
+# UVM_INFO apb_monitor.sv(29) @ 1845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00200000
+# UVM_INFO apb_driver.sv(38) @ 1865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00200000
+# UVM_INFO apb_monitor.sv(29) @ 1885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00400000
+# UVM_INFO apb_driver.sv(38) @ 1905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00400000
+# UVM_INFO apb_monitor.sv(29) @ 1925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00400000
+# UVM_INFO apb_driver.sv(38) @ 1945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00400000
+# UVM_INFO apb_monitor.sv(29) @ 1965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 1965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 1985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00800000
+# UVM_INFO apb_driver.sv(38) @ 1985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00800000
+# UVM_INFO apb_monitor.sv(29) @ 2005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00800000
+# UVM_INFO apb_driver.sv(38) @ 2025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00800000
+# UVM_INFO apb_monitor.sv(29) @ 2045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x01000000
+# UVM_INFO apb_driver.sv(38) @ 2065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x01000000
+# UVM_INFO apb_monitor.sv(29) @ 2085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x01000000
+# UVM_INFO apb_driver.sv(38) @ 2105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x01000000
+# UVM_INFO apb_monitor.sv(29) @ 2125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x02000000
+# UVM_INFO apb_driver.sv(38) @ 2145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x02000000
+# UVM_INFO apb_monitor.sv(29) @ 2165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x02000000
+# UVM_INFO apb_driver.sv(38) @ 2185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x02000000
+# UVM_INFO apb_monitor.sv(29) @ 2205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x04000000
+# UVM_INFO apb_driver.sv(38) @ 2225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x04000000
+# UVM_INFO apb_monitor.sv(29) @ 2245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x04000000
+# UVM_INFO apb_driver.sv(38) @ 2265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x04000000
+# UVM_INFO apb_monitor.sv(29) @ 2285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x08000000
+# UVM_INFO apb_driver.sv(38) @ 2305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x08000000
+# UVM_INFO apb_monitor.sv(29) @ 2325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x08000000
+# UVM_INFO apb_driver.sv(38) @ 2345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x08000000
+# UVM_INFO apb_monitor.sv(29) @ 2365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x10000000
+# UVM_INFO apb_driver.sv(38) @ 2385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x10000000
+# UVM_INFO apb_monitor.sv(29) @ 2405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x10000000
+# UVM_INFO apb_driver.sv(38) @ 2425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x10000000
+# UVM_INFO apb_monitor.sv(29) @ 2445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x20000000
+# UVM_INFO apb_driver.sv(38) @ 2465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x20000000
+# UVM_INFO apb_monitor.sv(29) @ 2485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x20000000
+# UVM_INFO apb_driver.sv(38) @ 2505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x20000000
+# UVM_INFO apb_monitor.sv(29) @ 2525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x40000000
+# UVM_INFO apb_driver.sv(38) @ 2545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x40000000
+# UVM_INFO apb_monitor.sv(29) @ 2565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x40000000
+# UVM_INFO apb_driver.sv(38) @ 2585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x40000000
+# UVM_INFO apb_monitor.sv(29) @ 2605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x80000000
+# UVM_INFO apb_driver.sv(38) @ 2625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x80000000
+# UVM_INFO apb_monitor.sv(29) @ 2645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 2665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x80000000
+# UVM_INFO apb_driver.sv(38) @ 2665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x80000000
+# UVM_INFO apb_monitor.sv(29) @ 2685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 2685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_bit_bash_seq.svh(128) @ 2685000: reporter@@bb_seq.reg_single_bit_bash_seq [uvm_reg_bit_bash_seq] Verifying bits in register regmodel.data in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(27) @ 2705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000fe
+# UVM_INFO apb_driver.sv(38) @ 2705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000fe
+# UVM_INFO apb_monitor.sv(29) @ 2725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000fe
+# UVM_INFO apb_driver.sv(40) @ 2725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000fe
+# UVM_INFO apb_monitor.sv(27) @ 2745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 2745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 2765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 2765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 2785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000fd
+# UVM_INFO apb_driver.sv(38) @ 2785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000fd
+# UVM_INFO apb_monitor.sv(29) @ 2805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000fd
+# UVM_INFO apb_driver.sv(40) @ 2805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000fd
+# UVM_INFO apb_monitor.sv(27) @ 2825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 2825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 2845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 2845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 2865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000fb
+# UVM_INFO apb_driver.sv(38) @ 2865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000fb
+# UVM_INFO apb_monitor.sv(29) @ 2885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000fb
+# UVM_INFO apb_driver.sv(40) @ 2885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000fb
+# UVM_INFO apb_monitor.sv(27) @ 2905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 2905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 2925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 2925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 2945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000f7
+# UVM_INFO apb_driver.sv(38) @ 2945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000f7
+# UVM_INFO apb_monitor.sv(29) @ 2965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000f7
+# UVM_INFO apb_driver.sv(40) @ 2965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000f7
+# UVM_INFO apb_monitor.sv(27) @ 2985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 2985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ef
+# UVM_INFO apb_driver.sv(38) @ 3025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ef
+# UVM_INFO apb_monitor.sv(29) @ 3045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ef
+# UVM_INFO apb_driver.sv(40) @ 3045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ef
+# UVM_INFO apb_monitor.sv(27) @ 3065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000df
+# UVM_INFO apb_driver.sv(38) @ 3105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000df
+# UVM_INFO apb_monitor.sv(29) @ 3125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000df
+# UVM_INFO apb_driver.sv(40) @ 3125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000df
+# UVM_INFO apb_monitor.sv(27) @ 3145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000bf
+# UVM_INFO apb_driver.sv(38) @ 3185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000bf
+# UVM_INFO apb_monitor.sv(29) @ 3205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000bf
+# UVM_INFO apb_driver.sv(40) @ 3205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000bf
+# UVM_INFO apb_monitor.sv(27) @ 3225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x0000007f
+# UVM_INFO apb_driver.sv(38) @ 3265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x0000007f
+# UVM_INFO apb_monitor.sv(29) @ 3285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x0000007f
+# UVM_INFO apb_driver.sv(40) @ 3285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x0000007f
+# UVM_INFO apb_monitor.sv(27) @ 3305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000001ff
+# UVM_INFO apb_driver.sv(38) @ 3345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000001ff
+# UVM_INFO apb_monitor.sv(29) @ 3365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000001ff
+# UVM_INFO apb_driver.sv(40) @ 3365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000001ff
+# UVM_INFO apb_monitor.sv(27) @ 3385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000002ff
+# UVM_INFO apb_driver.sv(38) @ 3425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000002ff
+# UVM_INFO apb_monitor.sv(29) @ 3445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000002ff
+# UVM_INFO apb_driver.sv(40) @ 3445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000002ff
+# UVM_INFO apb_monitor.sv(27) @ 3465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000004ff
+# UVM_INFO apb_driver.sv(38) @ 3505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000004ff
+# UVM_INFO apb_monitor.sv(29) @ 3525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000004ff
+# UVM_INFO apb_driver.sv(40) @ 3525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000004ff
+# UVM_INFO apb_monitor.sv(27) @ 3545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000008ff
+# UVM_INFO apb_driver.sv(38) @ 3585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000008ff
+# UVM_INFO apb_monitor.sv(29) @ 3605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000008ff
+# UVM_INFO apb_driver.sv(40) @ 3605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000008ff
+# UVM_INFO apb_monitor.sv(27) @ 3625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000010ff
+# UVM_INFO apb_driver.sv(38) @ 3665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000010ff
+# UVM_INFO apb_monitor.sv(29) @ 3685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000010ff
+# UVM_INFO apb_driver.sv(40) @ 3685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000010ff
+# UVM_INFO apb_monitor.sv(27) @ 3705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000020ff
+# UVM_INFO apb_driver.sv(38) @ 3745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000020ff
+# UVM_INFO apb_monitor.sv(29) @ 3765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000020ff
+# UVM_INFO apb_driver.sv(40) @ 3765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000020ff
+# UVM_INFO apb_monitor.sv(27) @ 3785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000040ff
+# UVM_INFO apb_driver.sv(38) @ 3825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000040ff
+# UVM_INFO apb_monitor.sv(29) @ 3845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000040ff
+# UVM_INFO apb_driver.sv(40) @ 3845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000040ff
+# UVM_INFO apb_monitor.sv(27) @ 3865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000080ff
+# UVM_INFO apb_driver.sv(38) @ 3905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000080ff
+# UVM_INFO apb_monitor.sv(29) @ 3925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000080ff
+# UVM_INFO apb_driver.sv(40) @ 3925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000080ff
+# UVM_INFO apb_monitor.sv(27) @ 3945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 3945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 3965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 3965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 3985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000100ff
+# UVM_INFO apb_driver.sv(38) @ 3985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000100ff
+# UVM_INFO apb_monitor.sv(29) @ 4005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000100ff
+# UVM_INFO apb_driver.sv(40) @ 4005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000100ff
+# UVM_INFO apb_monitor.sv(27) @ 4025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000200ff
+# UVM_INFO apb_driver.sv(38) @ 4065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000200ff
+# UVM_INFO apb_monitor.sv(29) @ 4085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000200ff
+# UVM_INFO apb_driver.sv(40) @ 4085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000200ff
+# UVM_INFO apb_monitor.sv(27) @ 4105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000400ff
+# UVM_INFO apb_driver.sv(38) @ 4145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000400ff
+# UVM_INFO apb_monitor.sv(29) @ 4165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000400ff
+# UVM_INFO apb_driver.sv(40) @ 4165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000400ff
+# UVM_INFO apb_monitor.sv(27) @ 4185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000800ff
+# UVM_INFO apb_driver.sv(38) @ 4225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000800ff
+# UVM_INFO apb_monitor.sv(29) @ 4245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000800ff
+# UVM_INFO apb_driver.sv(40) @ 4245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000800ff
+# UVM_INFO apb_monitor.sv(27) @ 4265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x001000ff
+# UVM_INFO apb_driver.sv(38) @ 4305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x001000ff
+# UVM_INFO apb_monitor.sv(29) @ 4325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x001000ff
+# UVM_INFO apb_driver.sv(40) @ 4325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x001000ff
+# UVM_INFO apb_monitor.sv(27) @ 4345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x002000ff
+# UVM_INFO apb_driver.sv(38) @ 4385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x002000ff
+# UVM_INFO apb_monitor.sv(29) @ 4405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x002000ff
+# UVM_INFO apb_driver.sv(40) @ 4405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x002000ff
+# UVM_INFO apb_monitor.sv(27) @ 4425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x004000ff
+# UVM_INFO apb_driver.sv(38) @ 4465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x004000ff
+# UVM_INFO apb_monitor.sv(29) @ 4485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x004000ff
+# UVM_INFO apb_driver.sv(40) @ 4485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x004000ff
+# UVM_INFO apb_monitor.sv(27) @ 4505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x008000ff
+# UVM_INFO apb_driver.sv(38) @ 4545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x008000ff
+# UVM_INFO apb_monitor.sv(29) @ 4565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x008000ff
+# UVM_INFO apb_driver.sv(40) @ 4565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x008000ff
+# UVM_INFO apb_monitor.sv(27) @ 4585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x010000ff
+# UVM_INFO apb_driver.sv(38) @ 4625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x010000ff
+# UVM_INFO apb_monitor.sv(29) @ 4645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x010000ff
+# UVM_INFO apb_driver.sv(40) @ 4645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x010000ff
+# UVM_INFO apb_monitor.sv(27) @ 4665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x020000ff
+# UVM_INFO apb_driver.sv(38) @ 4705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x020000ff
+# UVM_INFO apb_monitor.sv(29) @ 4725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x020000ff
+# UVM_INFO apb_driver.sv(40) @ 4725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x020000ff
+# UVM_INFO apb_monitor.sv(27) @ 4745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x040000ff
+# UVM_INFO apb_driver.sv(38) @ 4785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x040000ff
+# UVM_INFO apb_monitor.sv(29) @ 4805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x040000ff
+# UVM_INFO apb_driver.sv(40) @ 4805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x040000ff
+# UVM_INFO apb_monitor.sv(27) @ 4825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x080000ff
+# UVM_INFO apb_driver.sv(38) @ 4865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x080000ff
+# UVM_INFO apb_monitor.sv(29) @ 4885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x080000ff
+# UVM_INFO apb_driver.sv(40) @ 4885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x080000ff
+# UVM_INFO apb_monitor.sv(27) @ 4905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 4925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 4925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 4945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x100000ff
+# UVM_INFO apb_driver.sv(38) @ 4945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x100000ff
+# UVM_INFO apb_monitor.sv(29) @ 4965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x100000ff
+# UVM_INFO apb_driver.sv(40) @ 4965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x100000ff
+# UVM_INFO apb_monitor.sv(27) @ 4985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 4985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 5005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 5005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 5025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x200000ff
+# UVM_INFO apb_driver.sv(38) @ 5025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x200000ff
+# UVM_INFO apb_monitor.sv(29) @ 5045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x200000ff
+# UVM_INFO apb_driver.sv(40) @ 5045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x200000ff
+# UVM_INFO apb_monitor.sv(27) @ 5065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 5065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 5085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 5085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 5105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x400000ff
+# UVM_INFO apb_driver.sv(38) @ 5105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x400000ff
+# UVM_INFO apb_monitor.sv(29) @ 5125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x400000ff
+# UVM_INFO apb_driver.sv(40) @ 5125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x400000ff
+# UVM_INFO apb_monitor.sv(27) @ 5145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 5145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 5165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 5165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(27) @ 5185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x800000ff
+# UVM_INFO apb_driver.sv(38) @ 5185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x800000ff
+# UVM_INFO apb_monitor.sv(29) @ 5205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x800000ff
+# UVM_INFO apb_driver.sv(40) @ 5205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x800000ff
+# UVM_INFO apb_monitor.sv(27) @ 5225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(38) @ 5225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(29) @ 5245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 5245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_bit_bash_seq.svh(128) @ 5245000: reporter@@bb_seq.reg_single_bit_bash_seq [uvm_reg_bit_bash_seq] Verifying bits in register regmodel.status in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(27) @ 5265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 5265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 5285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 5305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 5325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000003
+# UVM_INFO apb_driver.sv(38) @ 5345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000003
+# UVM_INFO apb_monitor.sv(29) @ 5365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000003
+# UVM_INFO apb_driver.sv(38) @ 5385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000003
+# UVM_INFO apb_monitor.sv(29) @ 5405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000005
+# UVM_INFO apb_driver.sv(38) @ 5425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000005
+# UVM_INFO apb_monitor.sv(29) @ 5445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000005
+# UVM_INFO apb_driver.sv(38) @ 5465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000005
+# UVM_INFO apb_monitor.sv(29) @ 5485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000009
+# UVM_INFO apb_driver.sv(38) @ 5505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000009
+# UVM_INFO apb_monitor.sv(29) @ 5525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000009
+# UVM_INFO apb_driver.sv(38) @ 5545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000009
+# UVM_INFO apb_monitor.sv(29) @ 5565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000011
+# UVM_INFO apb_driver.sv(38) @ 5585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000011
+# UVM_INFO apb_monitor.sv(29) @ 5605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000011
+# UVM_INFO apb_driver.sv(38) @ 5625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000011
+# UVM_INFO apb_monitor.sv(29) @ 5645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000021
+# UVM_INFO apb_driver.sv(38) @ 5665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000021
+# UVM_INFO apb_monitor.sv(29) @ 5685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000021
+# UVM_INFO apb_driver.sv(38) @ 5705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000021
+# UVM_INFO apb_monitor.sv(29) @ 5725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000041
+# UVM_INFO apb_driver.sv(38) @ 5745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000041
+# UVM_INFO apb_monitor.sv(29) @ 5765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000041
+# UVM_INFO apb_driver.sv(38) @ 5785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000041
+# UVM_INFO apb_monitor.sv(29) @ 5805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000081
+# UVM_INFO apb_driver.sv(38) @ 5825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000081
+# UVM_INFO apb_monitor.sv(29) @ 5845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000081
+# UVM_INFO apb_driver.sv(38) @ 5865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000081
+# UVM_INFO apb_monitor.sv(29) @ 5885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000101
+# UVM_INFO apb_driver.sv(38) @ 5905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000101
+# UVM_INFO apb_monitor.sv(29) @ 5925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000101
+# UVM_INFO apb_driver.sv(38) @ 5945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000101
+# UVM_INFO apb_monitor.sv(29) @ 5965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 5965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 5985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000201
+# UVM_INFO apb_driver.sv(38) @ 5985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000201
+# UVM_INFO apb_monitor.sv(29) @ 6005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000201
+# UVM_INFO apb_driver.sv(38) @ 6025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000201
+# UVM_INFO apb_monitor.sv(29) @ 6045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000401
+# UVM_INFO apb_driver.sv(38) @ 6065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000401
+# UVM_INFO apb_monitor.sv(29) @ 6085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000401
+# UVM_INFO apb_driver.sv(38) @ 6105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000401
+# UVM_INFO apb_monitor.sv(29) @ 6125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000801
+# UVM_INFO apb_driver.sv(38) @ 6145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000801
+# UVM_INFO apb_monitor.sv(29) @ 6165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00000801
+# UVM_INFO apb_driver.sv(38) @ 6185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00000801
+# UVM_INFO apb_monitor.sv(29) @ 6205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00001001
+# UVM_INFO apb_driver.sv(38) @ 6225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00001001
+# UVM_INFO apb_monitor.sv(29) @ 6245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00001001
+# UVM_INFO apb_driver.sv(38) @ 6265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00001001
+# UVM_INFO apb_monitor.sv(29) @ 6285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00002001
+# UVM_INFO apb_driver.sv(38) @ 6305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00002001
+# UVM_INFO apb_monitor.sv(29) @ 6325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00002001
+# UVM_INFO apb_driver.sv(38) @ 6345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00002001
+# UVM_INFO apb_monitor.sv(29) @ 6365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00004001
+# UVM_INFO apb_driver.sv(38) @ 6385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00004001
+# UVM_INFO apb_monitor.sv(29) @ 6405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00004001
+# UVM_INFO apb_driver.sv(38) @ 6425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00004001
+# UVM_INFO apb_monitor.sv(29) @ 6445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00008001
+# UVM_INFO apb_driver.sv(38) @ 6465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00008001
+# UVM_INFO apb_monitor.sv(29) @ 6485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00008001
+# UVM_INFO apb_driver.sv(38) @ 6505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00008001
+# UVM_INFO apb_monitor.sv(29) @ 6525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00010001
+# UVM_INFO apb_driver.sv(38) @ 6545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00010001
+# UVM_INFO apb_monitor.sv(29) @ 6565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00010001
+# UVM_INFO apb_driver.sv(38) @ 6585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00010001
+# UVM_INFO apb_monitor.sv(29) @ 6605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00020001
+# UVM_INFO apb_driver.sv(38) @ 6625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00020001
+# UVM_INFO apb_monitor.sv(29) @ 6645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00020001
+# UVM_INFO apb_driver.sv(38) @ 6665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00020001
+# UVM_INFO apb_monitor.sv(29) @ 6685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00040001
+# UVM_INFO apb_driver.sv(38) @ 6705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00040001
+# UVM_INFO apb_monitor.sv(29) @ 6725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00040001
+# UVM_INFO apb_driver.sv(38) @ 6745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00040001
+# UVM_INFO apb_monitor.sv(29) @ 6765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00080001
+# UVM_INFO apb_driver.sv(38) @ 6785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00080001
+# UVM_INFO apb_monitor.sv(29) @ 6805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00080001
+# UVM_INFO apb_driver.sv(38) @ 6825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00080001
+# UVM_INFO apb_monitor.sv(29) @ 6845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00100001
+# UVM_INFO apb_driver.sv(38) @ 6865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00100001
+# UVM_INFO apb_monitor.sv(29) @ 6885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00100001
+# UVM_INFO apb_driver.sv(38) @ 6905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00100001
+# UVM_INFO apb_monitor.sv(29) @ 6925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00200001
+# UVM_INFO apb_driver.sv(38) @ 6945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00200001
+# UVM_INFO apb_monitor.sv(29) @ 6965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 6965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 6985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00200001
+# UVM_INFO apb_driver.sv(38) @ 6985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00200001
+# UVM_INFO apb_monitor.sv(29) @ 7005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00400001
+# UVM_INFO apb_driver.sv(38) @ 7025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00400001
+# UVM_INFO apb_monitor.sv(29) @ 7045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00400001
+# UVM_INFO apb_driver.sv(38) @ 7065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00400001
+# UVM_INFO apb_monitor.sv(29) @ 7085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00800001
+# UVM_INFO apb_driver.sv(38) @ 7105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00800001
+# UVM_INFO apb_monitor.sv(29) @ 7125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x00800001
+# UVM_INFO apb_driver.sv(38) @ 7145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x00800001
+# UVM_INFO apb_monitor.sv(29) @ 7165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x01000001
+# UVM_INFO apb_driver.sv(38) @ 7185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x01000001
+# UVM_INFO apb_monitor.sv(29) @ 7205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x01000001
+# UVM_INFO apb_driver.sv(38) @ 7225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x01000001
+# UVM_INFO apb_monitor.sv(29) @ 7245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x02000001
+# UVM_INFO apb_driver.sv(38) @ 7265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x02000001
+# UVM_INFO apb_monitor.sv(29) @ 7285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x02000001
+# UVM_INFO apb_driver.sv(38) @ 7305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x02000001
+# UVM_INFO apb_monitor.sv(29) @ 7325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x04000001
+# UVM_INFO apb_driver.sv(38) @ 7345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x04000001
+# UVM_INFO apb_monitor.sv(29) @ 7365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x04000001
+# UVM_INFO apb_driver.sv(38) @ 7385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x04000001
+# UVM_INFO apb_monitor.sv(29) @ 7405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x08000001
+# UVM_INFO apb_driver.sv(38) @ 7425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x08000001
+# UVM_INFO apb_monitor.sv(29) @ 7445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x08000001
+# UVM_INFO apb_driver.sv(38) @ 7465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x08000001
+# UVM_INFO apb_monitor.sv(29) @ 7485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x10000001
+# UVM_INFO apb_driver.sv(38) @ 7505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x10000001
+# UVM_INFO apb_monitor.sv(29) @ 7525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x10000001
+# UVM_INFO apb_driver.sv(38) @ 7545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x10000001
+# UVM_INFO apb_monitor.sv(29) @ 7565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x20000001
+# UVM_INFO apb_driver.sv(38) @ 7585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x20000001
+# UVM_INFO apb_monitor.sv(29) @ 7605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x20000001
+# UVM_INFO apb_driver.sv(38) @ 7625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x20000001
+# UVM_INFO apb_monitor.sv(29) @ 7645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x40000001
+# UVM_INFO apb_driver.sv(38) @ 7665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x40000001
+# UVM_INFO apb_monitor.sv(29) @ 7685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x40000001
+# UVM_INFO apb_driver.sv(38) @ 7705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x40000001
+# UVM_INFO apb_monitor.sv(29) @ 7725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x80000001
+# UVM_INFO apb_driver.sv(38) @ 7745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x80000001
+# UVM_INFO apb_monitor.sv(29) @ 7765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x80000001
+# UVM_INFO apb_driver.sv(38) @ 7785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x80000001
+# UVM_INFO apb_monitor.sv(29) @ 7805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_bit_bash_seq.svh(128) @ 7805000: reporter@@bb_seq.reg_single_bit_bash_seq [uvm_reg_bit_bash_seq] Verifying bits in register regmodel.ctrl in map "regmodel.default_map"...
+# UVM_INFO apb_monitor.sv(27) @ 7825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000001
+# UVM_INFO apb_driver.sv(38) @ 7825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 7845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 7845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 7865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 7865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 7885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 7885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 7905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000002
+# UVM_INFO apb_driver.sv(38) @ 7905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000002
+# UVM_INFO apb_monitor.sv(29) @ 7925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000002
+# UVM_INFO apb_driver.sv(40) @ 7925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000002
+# UVM_INFO apb_monitor.sv(27) @ 7945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 7945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 7965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 7965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 7985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000004
+# UVM_INFO apb_driver.sv(38) @ 7985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000004
+# UVM_INFO apb_monitor.sv(29) @ 8005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000004
+# UVM_INFO apb_driver.sv(40) @ 8005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000004
+# UVM_INFO apb_monitor.sv(27) @ 8025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 8025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 8045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000008
+# UVM_INFO apb_driver.sv(38) @ 8065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000008
+# UVM_INFO apb_monitor.sv(29) @ 8085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000008
+# UVM_INFO apb_driver.sv(40) @ 8085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000008
+# UVM_INFO apb_monitor.sv(27) @ 8105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 8105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 8125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000010
+# UVM_INFO apb_driver.sv(38) @ 8145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000010
+# UVM_INFO apb_monitor.sv(29) @ 8165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000010
+# UVM_INFO apb_driver.sv(40) @ 8165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000010
+# UVM_INFO apb_monitor.sv(27) @ 8185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 8185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 8205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000020
+# UVM_INFO apb_driver.sv(38) @ 8225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000020
+# UVM_INFO apb_monitor.sv(29) @ 8245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000020
+# UVM_INFO apb_driver.sv(40) @ 8245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000020
+# UVM_INFO apb_monitor.sv(27) @ 8265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 8265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 8285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000040
+# UVM_INFO apb_driver.sv(38) @ 8305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000040
+# UVM_INFO apb_monitor.sv(29) @ 8325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000040
+# UVM_INFO apb_driver.sv(40) @ 8325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000040
+# UVM_INFO apb_monitor.sv(27) @ 8345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 8345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 8365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000080
+# UVM_INFO apb_driver.sv(38) @ 8385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000080
+# UVM_INFO apb_monitor.sv(29) @ 8405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000080
+# UVM_INFO apb_driver.sv(40) @ 8405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000080
+# UVM_INFO apb_monitor.sv(27) @ 8425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 8425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 8445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000100
+# UVM_INFO apb_driver.sv(38) @ 8465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000100
+# UVM_INFO apb_monitor.sv(29) @ 8485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000100
+# UVM_INFO apb_driver.sv(38) @ 8505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000100
+# UVM_INFO apb_monitor.sv(29) @ 8525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000200
+# UVM_INFO apb_driver.sv(38) @ 8545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000200
+# UVM_INFO apb_monitor.sv(29) @ 8565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000200
+# UVM_INFO apb_driver.sv(38) @ 8585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000200
+# UVM_INFO apb_monitor.sv(29) @ 8605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000400
+# UVM_INFO apb_driver.sv(38) @ 8625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000400
+# UVM_INFO apb_monitor.sv(29) @ 8645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000400
+# UVM_INFO apb_driver.sv(38) @ 8665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000400
+# UVM_INFO apb_monitor.sv(29) @ 8685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000800
+# UVM_INFO apb_driver.sv(38) @ 8705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000800
+# UVM_INFO apb_monitor.sv(29) @ 8725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00000800
+# UVM_INFO apb_driver.sv(38) @ 8745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00000800
+# UVM_INFO apb_monitor.sv(29) @ 8765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00001000
+# UVM_INFO apb_driver.sv(38) @ 8785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00001000
+# UVM_INFO apb_monitor.sv(29) @ 8805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00001000
+# UVM_INFO apb_driver.sv(38) @ 8825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00001000
+# UVM_INFO apb_monitor.sv(29) @ 8845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00002000
+# UVM_INFO apb_driver.sv(38) @ 8865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00002000
+# UVM_INFO apb_monitor.sv(29) @ 8885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00002000
+# UVM_INFO apb_driver.sv(38) @ 8905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00002000
+# UVM_INFO apb_monitor.sv(29) @ 8925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00004000
+# UVM_INFO apb_driver.sv(38) @ 8945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00004000
+# UVM_INFO apb_monitor.sv(29) @ 8965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 8965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 8985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00004000
+# UVM_INFO apb_driver.sv(38) @ 8985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00004000
+# UVM_INFO apb_monitor.sv(29) @ 9005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00008000
+# UVM_INFO apb_driver.sv(38) @ 9025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00008000
+# UVM_INFO apb_monitor.sv(29) @ 9045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00008000
+# UVM_INFO apb_driver.sv(38) @ 9065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00008000
+# UVM_INFO apb_monitor.sv(29) @ 9085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00010000
+# UVM_INFO apb_driver.sv(38) @ 9105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00010000
+# UVM_INFO apb_monitor.sv(29) @ 9125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00010000
+# UVM_INFO apb_driver.sv(38) @ 9145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00010000
+# UVM_INFO apb_monitor.sv(29) @ 9165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00020000
+# UVM_INFO apb_driver.sv(38) @ 9185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00020000
+# UVM_INFO apb_monitor.sv(29) @ 9205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00020000
+# UVM_INFO apb_driver.sv(38) @ 9225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00020000
+# UVM_INFO apb_monitor.sv(29) @ 9245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00040000
+# UVM_INFO apb_driver.sv(38) @ 9265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00040000
+# UVM_INFO apb_monitor.sv(29) @ 9285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00040000
+# UVM_INFO apb_driver.sv(38) @ 9305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00040000
+# UVM_INFO apb_monitor.sv(29) @ 9325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00080000
+# UVM_INFO apb_driver.sv(38) @ 9345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00080000
+# UVM_INFO apb_monitor.sv(29) @ 9365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00080000
+# UVM_INFO apb_driver.sv(38) @ 9385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00080000
+# UVM_INFO apb_monitor.sv(29) @ 9405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00100000
+# UVM_INFO apb_driver.sv(38) @ 9425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00100000
+# UVM_INFO apb_monitor.sv(29) @ 9445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00100000
+# UVM_INFO apb_driver.sv(38) @ 9465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00100000
+# UVM_INFO apb_monitor.sv(29) @ 9485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00200000
+# UVM_INFO apb_driver.sv(38) @ 9505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00200000
+# UVM_INFO apb_monitor.sv(29) @ 9525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00200000
+# UVM_INFO apb_driver.sv(38) @ 9545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00200000
+# UVM_INFO apb_monitor.sv(29) @ 9565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00400000
+# UVM_INFO apb_driver.sv(38) @ 9585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00400000
+# UVM_INFO apb_monitor.sv(29) @ 9605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00400000
+# UVM_INFO apb_driver.sv(38) @ 9625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00400000
+# UVM_INFO apb_monitor.sv(29) @ 9645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00800000
+# UVM_INFO apb_driver.sv(38) @ 9665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00800000
+# UVM_INFO apb_monitor.sv(29) @ 9685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x00800000
+# UVM_INFO apb_driver.sv(38) @ 9705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x00800000
+# UVM_INFO apb_monitor.sv(29) @ 9725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x01000000
+# UVM_INFO apb_driver.sv(38) @ 9745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x01000000
+# UVM_INFO apb_monitor.sv(29) @ 9765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x01000000
+# UVM_INFO apb_driver.sv(38) @ 9785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x01000000
+# UVM_INFO apb_monitor.sv(29) @ 9805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x02000000
+# UVM_INFO apb_driver.sv(38) @ 9825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x02000000
+# UVM_INFO apb_monitor.sv(29) @ 9845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x02000000
+# UVM_INFO apb_driver.sv(38) @ 9865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x02000000
+# UVM_INFO apb_monitor.sv(29) @ 9885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x04000000
+# UVM_INFO apb_driver.sv(38) @ 9905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x04000000
+# UVM_INFO apb_monitor.sv(29) @ 9925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x04000000
+# UVM_INFO apb_driver.sv(38) @ 9945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x04000000
+# UVM_INFO apb_monitor.sv(29) @ 9965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 9965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 9985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x08000000
+# UVM_INFO apb_driver.sv(38) @ 9985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x08000000
+# UVM_INFO apb_monitor.sv(29) @ 10005000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10005000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x08000000
+# UVM_INFO apb_driver.sv(38) @ 10025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x08000000
+# UVM_INFO apb_monitor.sv(29) @ 10045000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10045000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x10000000
+# UVM_INFO apb_driver.sv(38) @ 10065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x10000000
+# UVM_INFO apb_monitor.sv(29) @ 10085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x10000000
+# UVM_INFO apb_driver.sv(38) @ 10105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x10000000
+# UVM_INFO apb_monitor.sv(29) @ 10125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x20000000
+# UVM_INFO apb_driver.sv(38) @ 10145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x20000000
+# UVM_INFO apb_monitor.sv(29) @ 10165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x20000000
+# UVM_INFO apb_driver.sv(38) @ 10185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x20000000
+# UVM_INFO apb_monitor.sv(29) @ 10205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x40000000
+# UVM_INFO apb_driver.sv(38) @ 10225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x40000000
+# UVM_INFO apb_monitor.sv(29) @ 10245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x40000000
+# UVM_INFO apb_driver.sv(38) @ 10265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x40000000
+# UVM_INFO apb_monitor.sv(29) @ 10285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x80000000
+# UVM_INFO apb_driver.sv(38) @ 10305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x80000000
+# UVM_INFO apb_monitor.sv(29) @ 10325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10345000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x80000000
+# UVM_INFO apb_driver.sv(38) @ 10345000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x80000000
+# UVM_INFO apb_monitor.sv(29) @ 10365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000000
+# UVM_INFO testbench.sv(221) @ 10365000: uvm_test_top [RAL] START random traffic (200 transfers)
+# UVM_INFO apb_monitor.sv(29) @ 10385000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10385000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 10405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 10425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xd55f08af
+# UVM_INFO apb_driver.sv(38) @ 10425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xd55f08af
+# UVM_INFO apb_monitor.sv(29) @ 10445000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 10445000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 10465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x8bdb9ecd
+# UVM_INFO apb_driver.sv(38) @ 10465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x8bdb9ecd
+# UVM_INFO apb_monitor.sv(29) @ 10485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0xd55f08af
+# UVM_INFO apb_driver.sv(40) @ 10485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0xd55f08af
+# UVM_INFO apb_monitor.sv(29) @ 10505000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10505000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 10525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000cd
+# UVM_INFO apb_driver.sv(40) @ 10525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000cd
+# UVM_INFO apb_monitor.sv(29) @ 10545000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000cd
+# UVM_INFO apb_driver.sv(40) @ 10545000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000cd
+# UVM_INFO apb_monitor.sv(27) @ 10565000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xfdaf461e
+# UVM_INFO apb_driver.sv(38) @ 10565000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xfdaf461e
+# UVM_INFO apb_monitor.sv(29) @ 10585000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 10585000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 10605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 10605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 10625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xbe32c5a5
+# UVM_INFO apb_driver.sv(38) @ 10625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xbe32c5a5
+# UVM_INFO apb_monitor.sv(29) @ 10645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 10645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 10665000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0xd55f08af
+# UVM_INFO apb_driver.sv(40) @ 10665000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0xd55f08af
+# UVM_INFO apb_monitor.sv(27) @ 10685000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xac0ccfeb
+# UVM_INFO apb_driver.sv(38) @ 10685000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xac0ccfeb
+# UVM_INFO apb_monitor.sv(27) @ 10705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xde497052
+# UVM_INFO apb_driver.sv(38) @ 10705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xde497052
+# UVM_INFO apb_monitor.sv(27) @ 10725000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x067ae601
+# UVM_INFO apb_driver.sv(38) @ 10725000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x067ae601
+# UVM_INFO apb_monitor.sv(29) @ 10745000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 10745000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 10765000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x98c5b236
+# UVM_INFO apb_driver.sv(38) @ 10765000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x98c5b236
+# UVM_INFO apb_monitor.sv(27) @ 10785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x89fd9c9f
+# UVM_INFO apb_driver.sv(38) @ 10785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x89fd9c9f
+# UVM_INFO apb_monitor.sv(27) @ 10805000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x8baade8a
+# UVM_INFO apb_driver.sv(38) @ 10805000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x8baade8a
+# UVM_INFO apb_monitor.sv(27) @ 10825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x96c0d679
+# UVM_INFO apb_driver.sv(38) @ 10825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x96c0d679
+# UVM_INFO apb_monitor.sv(27) @ 10845000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x3a094436
+# UVM_INFO apb_driver.sv(38) @ 10845000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x3a094436
+# UVM_INFO apb_monitor.sv(27) @ 10865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xea39dac5
+# UVM_INFO apb_driver.sv(38) @ 10865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xea39dac5
+# UVM_INFO apb_monitor.sv(27) @ 10885000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x48eb894d
+# UVM_INFO apb_driver.sv(38) @ 10885000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x48eb894d
+# UVM_INFO apb_monitor.sv(29) @ 10905000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_driver.sv(40) @ 10905000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_monitor.sv(27) @ 10925000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0xc834dada
+# UVM_INFO apb_driver.sv(38) @ 10925000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0xc834dada
+# UVM_INFO apb_monitor.sv(29) @ 10945000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000da
+# UVM_INFO apb_driver.sv(40) @ 10945000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000da
+# UVM_INFO apb_monitor.sv(29) @ 10965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000da
+# UVM_INFO apb_driver.sv(40) @ 10965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000da
+# UVM_INFO apb_monitor.sv(27) @ 10985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x07077aa3
+# UVM_INFO apb_driver.sv(38) @ 10985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x07077aa3
+# UVM_INFO apb_monitor.sv(27) @ 11005000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xf6053136
+# UVM_INFO apb_driver.sv(38) @ 11005000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xf6053136
+# UVM_INFO apb_monitor.sv(29) @ 11025000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 11025000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 11045000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x856f862f
+# UVM_INFO apb_driver.sv(38) @ 11045000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x856f862f
+# UVM_INFO apb_monitor.sv(27) @ 11065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x6e66849c
+# UVM_INFO apb_driver.sv(38) @ 11065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x6e66849c
+# UVM_INFO apb_monitor.sv(27) @ 11085000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x76f29e71
+# UVM_INFO apb_driver.sv(38) @ 11085000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x76f29e71
+# UVM_INFO apb_monitor.sv(29) @ 11105000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11105000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 11125000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xa29866da
+# UVM_INFO apb_driver.sv(38) @ 11125000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xa29866da
+# UVM_INFO apb_monitor.sv(29) @ 11145000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 11145000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 11165000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x76e90106
+# UVM_INFO apb_driver.sv(38) @ 11165000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x76e90106
+# UVM_INFO apb_monitor.sv(27) @ 11185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x8ee22a2a
+# UVM_INFO apb_driver.sv(38) @ 11185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x8ee22a2a
+# UVM_INFO apb_monitor.sv(29) @ 11205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 11205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 11225000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11225000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 11245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 11265000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x53ec7991
+# UVM_INFO apb_driver.sv(38) @ 11265000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x53ec7991
+# UVM_INFO apb_monitor.sv(29) @ 11285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x8ee22a2a
+# UVM_INFO apb_driver.sv(40) @ 11285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x8ee22a2a
+# UVM_INFO apb_monitor.sv(27) @ 11305000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x7de07836
+# UVM_INFO apb_driver.sv(38) @ 11305000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x7de07836
+# UVM_INFO apb_monitor.sv(27) @ 11325000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x4c3c95e0
+# UVM_INFO apb_driver.sv(38) @ 11325000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x4c3c95e0
+# UVM_INFO apb_monitor.sv(29) @ 11345000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000091
+# UVM_INFO apb_driver.sv(40) @ 11345000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000091
+# UVM_INFO apb_monitor.sv(29) @ 11365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 11365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 11385000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11385000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 11405000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x384693cd
+# UVM_INFO apb_driver.sv(38) @ 11405000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x384693cd
+# UVM_INFO apb_monitor.sv(29) @ 11425000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11425000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 11445000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xadbadf34
+# UVM_INFO apb_driver.sv(38) @ 11445000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xadbadf34
+# UVM_INFO apb_monitor.sv(27) @ 11465000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xb31c5581
+# UVM_INFO apb_driver.sv(38) @ 11465000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xb31c5581
+# UVM_INFO apb_monitor.sv(27) @ 11485000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x183e1a90
+# UVM_INFO apb_driver.sv(38) @ 11485000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x183e1a90
+# UVM_INFO apb_monitor.sv(29) @ 11505000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11505000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 11525000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x8dd070a4
+# UVM_INFO apb_driver.sv(38) @ 11525000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x8dd070a4
+# UVM_INFO apb_monitor.sv(27) @ 11545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x4756619c
+# UVM_INFO apb_driver.sv(38) @ 11545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x4756619c
+# UVM_INFO apb_monitor.sv(29) @ 11565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0xadbadf34
+# UVM_INFO apb_driver.sv(40) @ 11565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0xadbadf34
+# UVM_INFO apb_monitor.sv(27) @ 11585000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x8699d9a1
+# UVM_INFO apb_driver.sv(38) @ 11585000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x8699d9a1
+# UVM_INFO apb_monitor.sv(27) @ 11605000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x70bf7806
+# UVM_INFO apb_driver.sv(38) @ 11605000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x70bf7806
+# UVM_INFO apb_monitor.sv(27) @ 11625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xbe1ee3a6
+# UVM_INFO apb_driver.sv(38) @ 11625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xbe1ee3a6
+# UVM_INFO apb_monitor.sv(27) @ 11645000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0xab99b261
+# UVM_INFO apb_driver.sv(38) @ 11645000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0xab99b261
+# UVM_INFO apb_monitor.sv(27) @ 11665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xd038ffa8
+# UVM_INFO apb_driver.sv(38) @ 11665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xd038ffa8
+# UVM_INFO apb_monitor.sv(29) @ 11685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 11705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xdcf7b174
+# UVM_INFO apb_driver.sv(38) @ 11705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xdcf7b174
+# UVM_INFO apb_monitor.sv(29) @ 11725000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 11725000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 11745000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x1f91b5b9
+# UVM_INFO apb_driver.sv(38) @ 11745000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x1f91b5b9
+# UVM_INFO apb_monitor.sv(27) @ 11765000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xc331c415
+# UVM_INFO apb_driver.sv(38) @ 11765000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xc331c415
+# UVM_INFO apb_monitor.sv(27) @ 11785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xc8213b27
+# UVM_INFO apb_driver.sv(38) @ 11785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xc8213b27
+# UVM_INFO apb_monitor.sv(27) @ 11805000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xd2ee18fa
+# UVM_INFO apb_driver.sv(38) @ 11805000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xd2ee18fa
+# UVM_INFO apb_monitor.sv(27) @ 11825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xb03c5e8e
+# UVM_INFO apb_driver.sv(38) @ 11825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xb03c5e8e
+# UVM_INFO apb_monitor.sv(29) @ 11845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 11845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 11865000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0xb03c5e8e
+# UVM_INFO apb_driver.sv(40) @ 11865000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0xb03c5e8e
+# UVM_INFO apb_monitor.sv(27) @ 11885000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0xe1d9ed76
+# UVM_INFO apb_driver.sv(38) @ 11885000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0xe1d9ed76
+# UVM_INFO apb_monitor.sv(29) @ 11905000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000076
+# UVM_INFO apb_driver.sv(40) @ 11905000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000076
+# UVM_INFO apb_monitor.sv(29) @ 11925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 11925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 11945000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000076
+# UVM_INFO apb_driver.sv(40) @ 11945000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000076
+# UVM_INFO apb_monitor.sv(29) @ 11965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 11965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 11985000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0xb03c5e8e
+# UVM_INFO apb_driver.sv(40) @ 11985000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0xb03c5e8e
+# UVM_INFO apb_monitor.sv(27) @ 12005000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xb65b819f
+# UVM_INFO apb_driver.sv(38) @ 12005000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xb65b819f
+# UVM_INFO apb_monitor.sv(27) @ 12025000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0xed04cc5d
+# UVM_INFO apb_driver.sv(38) @ 12025000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0xed04cc5d
+# UVM_INFO apb_monitor.sv(27) @ 12045000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x358cea4c
+# UVM_INFO apb_driver.sv(38) @ 12045000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x358cea4c
+# UVM_INFO apb_monitor.sv(27) @ 12065000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x87780e3f
+# UVM_INFO apb_driver.sv(38) @ 12065000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x87780e3f
+# UVM_INFO apb_monitor.sv(27) @ 12085000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x0498ed93
+# UVM_INFO apb_driver.sv(38) @ 12085000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x0498ed93
+# UVM_INFO apb_monitor.sv(27) @ 12105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x5415fc89
+# UVM_INFO apb_driver.sv(38) @ 12105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x5415fc89
+# UVM_INFO apb_monitor.sv(29) @ 12125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 12145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x28541029
+# UVM_INFO apb_driver.sv(38) @ 12145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x28541029
+# UVM_INFO apb_monitor.sv(27) @ 12165000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x632290c1
+# UVM_INFO apb_driver.sv(38) @ 12165000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x632290c1
+# UVM_INFO apb_monitor.sv(27) @ 12185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x7eb76e64
+# UVM_INFO apb_driver.sv(38) @ 12185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x7eb76e64
+# UVM_INFO apb_monitor.sv(29) @ 12205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_driver.sv(40) @ 12205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_monitor.sv(29) @ 12225000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12225000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12265000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 12265000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 12285000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12285000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12305000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000005d
+# UVM_INFO apb_driver.sv(40) @ 12305000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000005d
+# UVM_INFO apb_monitor.sv(29) @ 12325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 12325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 12345000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12345000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_driver.sv(40) @ 12365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_monitor.sv(29) @ 12385000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000005d
+# UVM_INFO apb_driver.sv(40) @ 12385000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000005d
+# UVM_INFO apb_monitor.sv(29) @ 12405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 12405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 12425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x367d91d3
+# UVM_INFO apb_driver.sv(38) @ 12425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x367d91d3
+# UVM_INFO apb_monitor.sv(27) @ 12445000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x964233ab
+# UVM_INFO apb_driver.sv(38) @ 12445000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x964233ab
+# UVM_INFO apb_monitor.sv(29) @ 12465000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12465000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12505000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_driver.sv(40) @ 12505000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_monitor.sv(29) @ 12525000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 12525000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 12545000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x774e836c
+# UVM_INFO apb_driver.sv(38) @ 12545000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x774e836c
+# UVM_INFO apb_monitor.sv(27) @ 12565000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x7e11a172
+# UVM_INFO apb_driver.sv(38) @ 12565000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x7e11a172
+# UVM_INFO apb_monitor.sv(29) @ 12585000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_driver.sv(40) @ 12585000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_monitor.sv(29) @ 12605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_driver.sv(40) @ 12605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_monitor.sv(29) @ 12625000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12625000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 12645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 12665000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 12665000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 12685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_driver.sv(40) @ 12685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x358cea4c
+# UVM_INFO apb_monitor.sv(27) @ 12705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x016fb245
+# UVM_INFO apb_driver.sv(38) @ 12705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x016fb245
+# UVM_INFO apb_monitor.sv(27) @ 12725000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xa18b042f
+# UVM_INFO apb_driver.sv(38) @ 12725000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xa18b042f
+# UVM_INFO apb_monitor.sv(29) @ 12745000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000006c
+# UVM_INFO apb_driver.sv(40) @ 12745000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000006c
+# UVM_INFO apb_monitor.sv(29) @ 12765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 12765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 12785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xf80eec1b
+# UVM_INFO apb_driver.sv(38) @ 12785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xf80eec1b
+# UVM_INFO apb_monitor.sv(29) @ 12805000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12805000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 12825000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12825000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 12845000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x1ab89802
+# UVM_INFO apb_driver.sv(38) @ 12845000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x1ab89802
+# UVM_INFO apb_monitor.sv(29) @ 12865000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12865000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 12885000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0xe34f8ad8
+# UVM_INFO apb_driver.sv(38) @ 12885000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0xe34f8ad8
+# UVM_INFO apb_monitor.sv(27) @ 12905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xdefabd57
+# UVM_INFO apb_driver.sv(38) @ 12905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xdefabd57
+# UVM_INFO apb_monitor.sv(29) @ 12925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 12945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x5f564f00
+# UVM_INFO apb_driver.sv(38) @ 12945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x5f564f00
+# UVM_INFO apb_monitor.sv(29) @ 12965000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 12965000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 12985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x4ec1fc4e
+# UVM_INFO apb_driver.sv(38) @ 12985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x4ec1fc4e
+# UVM_INFO apb_monitor.sv(27) @ 13005000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x636abf5e
+# UVM_INFO apb_driver.sv(38) @ 13005000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x636abf5e
+# UVM_INFO apb_monitor.sv(29) @ 13025000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13025000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 13045000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xbacaa38f
+# UVM_INFO apb_driver.sv(38) @ 13045000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xbacaa38f
+# UVM_INFO apb_monitor.sv(29) @ 13065000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13065000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 13085000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x3e8f26c7
+# UVM_INFO apb_driver.sv(38) @ 13085000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x3e8f26c7
+# UVM_INFO apb_monitor.sv(29) @ 13105000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13105000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 13125000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13125000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 13145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x2aa1327f
+# UVM_INFO apb_driver.sv(38) @ 13145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x2aa1327f
+# UVM_INFO apb_monitor.sv(29) @ 13165000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13165000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 13185000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13185000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 13205000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13205000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 13225000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000007f
+# UVM_INFO apb_driver.sv(40) @ 13225000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000007f
+# UVM_INFO apb_monitor.sv(29) @ 13245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 13265000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13265000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 13285000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x9594cfd7
+# UVM_INFO apb_driver.sv(38) @ 13285000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x9594cfd7
+# UVM_INFO apb_monitor.sv(29) @ 13305000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000d7
+# UVM_INFO apb_driver.sv(40) @ 13305000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000d7
+# UVM_INFO apb_monitor.sv(29) @ 13325000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000d7
+# UVM_INFO apb_driver.sv(40) @ 13325000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000d7
+# UVM_INFO apb_monitor.sv(29) @ 13345000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13345000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 13365000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13365000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 13385000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13385000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 13405000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x51fc74f0
+# UVM_INFO apb_driver.sv(38) @ 13405000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x51fc74f0
+# UVM_INFO apb_monitor.sv(27) @ 13425000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x5f662f4d
+# UVM_INFO apb_driver.sv(38) @ 13425000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x5f662f4d
+# UVM_INFO apb_monitor.sv(27) @ 13445000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xeaac854c
+# UVM_INFO apb_driver.sv(38) @ 13445000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xeaac854c
+# UVM_INFO apb_monitor.sv(29) @ 13465000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13465000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 13485000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 13485000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 13505000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x0553e0b8
+# UVM_INFO apb_driver.sv(38) @ 13505000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x0553e0b8
+# UVM_INFO apb_monitor.sv(27) @ 13525000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x910b0b14
+# UVM_INFO apb_driver.sv(38) @ 13525000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x910b0b14
+# UVM_INFO apb_monitor.sv(29) @ 13545000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13545000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 13565000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_driver.sv(40) @ 13565000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_monitor.sv(29) @ 13585000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13585000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 13605000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_driver.sv(40) @ 13605000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
+# UVM_INFO apb_monitor.sv(27) @ 13625000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x7ba24a51
+# UVM_INFO apb_driver.sv(38) @ 13625000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x7ba24a51
+# UVM_INFO apb_monitor.sv(29) @ 13645000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_driver.sv(40) @ 13645000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_monitor.sv(27) @ 13665000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x01883811
+# UVM_INFO apb_driver.sv(38) @ 13665000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x01883811
+# UVM_INFO apb_monitor.sv(29) @ 13685000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_driver.sv(40) @ 13685000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000004d
+# UVM_INFO apb_monitor.sv(27) @ 13705000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x268559fb
+# UVM_INFO apb_driver.sv(38) @ 13705000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x268559fb
+# UVM_INFO apb_monitor.sv(27) @ 13725000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xaea309c9
+# UVM_INFO apb_driver.sv(38) @ 13725000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xaea309c9
+# UVM_INFO apb_monitor.sv(29) @ 13745000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x01883811
+# UVM_INFO apb_driver.sv(40) @ 13745000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x01883811
+# UVM_INFO apb_monitor.sv(29) @ 13765000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x01883811
+# UVM_INFO apb_driver.sv(40) @ 13765000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x01883811
+# UVM_INFO apb_monitor.sv(27) @ 13785000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x83676592
+# UVM_INFO apb_driver.sv(38) @ 13785000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x83676592
+# UVM_INFO apb_monitor.sv(27) @ 13805000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x49b6a291
+# UVM_INFO apb_driver.sv(38) @ 13805000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x49b6a291
+# UVM_INFO apb_monitor.sv(27) @ 13825000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x7788097b
+# UVM_INFO apb_driver.sv(38) @ 13825000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x7788097b
+# UVM_INFO apb_monitor.sv(29) @ 13845000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x83676592
+# UVM_INFO apb_driver.sv(40) @ 13845000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x83676592
+# UVM_INFO apb_monitor.sv(27) @ 13865000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xfe7dbbe2
+# UVM_INFO apb_driver.sv(38) @ 13865000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xfe7dbbe2
+# UVM_INFO apb_monitor.sv(29) @ 13885000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x83676592
+# UVM_INFO apb_driver.sv(40) @ 13885000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x83676592
+# UVM_INFO apb_monitor.sv(27) @ 13905000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xc3a5f6d7
+# UVM_INFO apb_driver.sv(38) @ 13905000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xc3a5f6d7
+# UVM_INFO apb_monitor.sv(29) @ 13925000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x0000007b
+# UVM_INFO apb_driver.sv(40) @ 13925000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x0000007b
+# UVM_INFO apb_monitor.sv(27) @ 13945000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x1d7731fc
+# UVM_INFO apb_driver.sv(38) @ 13945000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x1d7731fc
+# UVM_INFO apb_monitor.sv(27) @ 13965000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x2385ade0
+# UVM_INFO apb_driver.sv(38) @ 13965000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x2385ade0
+# UVM_INFO apb_monitor.sv(27) @ 13985000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x8f9f3c9d
+# UVM_INFO apb_driver.sv(38) @ 13985000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x8f9f3c9d
+# UVM_INFO apb_monitor.sv(27) @ 14005000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0xd59df633
+# UVM_INFO apb_driver.sv(38) @ 14005000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0xd59df633
+# UVM_INFO apb_monitor.sv(29) @ 14025000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x00000033
+# UVM_INFO apb_driver.sv(40) @ 14025000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x00000033
+# UVM_INFO apb_monitor.sv(27) @ 14045000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xadd47fa8
+# UVM_INFO apb_driver.sv(38) @ 14045000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xadd47fa8
+# UVM_INFO apb_monitor.sv(29) @ 14065000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 14065000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 14085000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 14085000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 14105000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xbc3aae82
+# UVM_INFO apb_driver.sv(38) @ 14105000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xbc3aae82
+# UVM_INFO apb_monitor.sv(27) @ 14125000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0x6e0654a0
+# UVM_INFO apb_driver.sv(38) @ 14125000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0x6e0654a0
+# UVM_INFO apb_monitor.sv(27) @ 14145000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xd3c74d5f
+# UVM_INFO apb_driver.sv(38) @ 14145000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xd3c74d5f
+# UVM_INFO apb_monitor.sv(27) @ 14165000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0xe324958f
+# UVM_INFO apb_driver.sv(38) @ 14165000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0xe324958f
+# UVM_INFO apb_monitor.sv(27) @ 14185000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0xe8724b88
+# UVM_INFO apb_driver.sv(38) @ 14185000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0xe8724b88
+# UVM_INFO apb_monitor.sv(27) @ 14205000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x04 data=0x6db0a374
+# UVM_INFO apb_driver.sv(38) @ 14205000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x04 data=0x6db0a374
+# UVM_INFO apb_monitor.sv(27) @ 14225000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x9baa3092
+# UVM_INFO apb_driver.sv(38) @ 14225000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x9baa3092
+# UVM_INFO apb_monitor.sv(29) @ 14245000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000a0
+# UVM_INFO apb_driver.sv(40) @ 14245000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000a0
+# UVM_INFO apb_monitor.sv(29) @ 14265000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0xe8724b88
+# UVM_INFO apb_driver.sv(40) @ 14265000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0xe8724b88
+# UVM_INFO apb_monitor.sv(27) @ 14285000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x08 data=0x901ff07b
+# UVM_INFO apb_driver.sv(38) @ 14285000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x08 data=0x901ff07b
+# UVM_INFO apb_monitor.sv(29) @ 14305000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 14305000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(27) @ 14325000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0xb6a59fca
+# UVM_INFO apb_driver.sv(38) @ 14325000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0xb6a59fca
+# UVM_INFO apb_monitor.sv(29) @ 14345000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x00 data=0x000000a0
+# UVM_INFO apb_driver.sv(40) @ 14345000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x00 data=0x000000a0
+# UVM_INFO apb_monitor.sv(27) @ 14365000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x00 data=0xac973b16
+# UVM_INFO apb_driver.sv(38) @ 14365000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x00 data=0xac973b16
+# UVM_INFO testbench.sv(226) @ 14365000: uvm_test_top [RAL] START interrupt scenario
+# UVM_INFO apb_monitor.sv(27) @ 14385000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x0000000f
+# UVM_INFO apb_driver.sv(38) @ 14385000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x0000000f
+# UVM_INFO apb_monitor.sv(29) @ 14405000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 14405000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO testbench.sv(138) @ 14405000: uvm_test_top [INTR] PASS clear all                          got=0x0
+# UVM_INFO apb_monitor.sv(29) @ 14465000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000005
+# UVM_INFO apb_driver.sv(40) @ 14465000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000005
+# UVM_INFO testbench.sv(138) @ 14465000: uvm_test_top [INTR] PASS hw sets bits 0 and 2               got=0x5
+# UVM_INFO apb_monitor.sv(27) @ 14485000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000001
+# UVM_INFO apb_driver.sv(38) @ 14485000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000001
+# UVM_INFO apb_monitor.sv(29) @ 14505000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000004
+# UVM_INFO apb_driver.sv(40) @ 14505000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000004
+# UVM_INFO testbench.sv(138) @ 14505000: uvm_test_top [INTR] PASS W1C clears bit 0 only              got=0x4
+# UVM_INFO apb_monitor.sv(27) @ 14525000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(38) @ 14525000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000000
+# UVM_INFO apb_monitor.sv(29) @ 14545000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000004
+# UVM_INFO apb_driver.sv(40) @ 14545000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000004
+# UVM_INFO testbench.sv(138) @ 14545000: uvm_test_top [INTR] PASS writing 0 clears nothing           got=0x4
+# UVM_INFO apb_monitor.sv(27) @ 14565000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x00000004
+# UVM_INFO apb_driver.sv(38) @ 14565000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x00000004
+# UVM_INFO apb_monitor.sv(29) @ 14585000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000004
+# UVM_INFO apb_driver.sv(40) @ 14585000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000004
+# UVM_INFO testbench.sv(138) @ 14585000: uvm_test_top [INTR] PASS hw set wins over same-clock clear  got=0x4
+# UVM_INFO apb_monitor.sv(27) @ 14605000: uvm_test_top.env.agent.monitor [MON] WRITE addr=0x0c data=0x0000000f
+# UVM_INFO apb_driver.sv(38) @ 14605000: uvm_test_top.env.agent.driver [DRV] WRITE addr=0x0c data=0x0000000f
+# UVM_INFO apb_monitor.sv(29) @ 14625000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000
+# UVM_INFO apb_driver.sv(40) @ 14625000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
+# UVM_INFO testbench.sv(138) @ 14625000: uvm_test_top [INTR] PASS clear all again                    got=0x0
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 14675000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO apb_scoreboard.sv(50) @ 14675000: uvm_test_top.env.scb [SCB] SCOREBOARD read checks=367 mismatches=0
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 14675000: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO : 1480
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DRV]   727
+# [INTR]     6
+# [MON]   727
+# [Questa UVM]     2
+# [RAL]     4
+# [RNTST]     1
+# [SCB]     1
+# [STARTING_SEQ]     2
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# [uvm_reg_bit_bash_seq]     4
+# [uvm_reg_hw_reset_seq]     4
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 14675 ns  Iteration: 68  Instance: /tb_top
+# End time: 02:19:16 on Nov 21,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 0
+End time: 02:19:16 on Nov 21,2026, Elapsed time: 0:00:17
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   0
+    vopt: Errors:   0, Warnings:   1
+    vsim: Errors:   0, Warnings:   0
+  Totals: Errors:   0, Warnings:   1
+Done

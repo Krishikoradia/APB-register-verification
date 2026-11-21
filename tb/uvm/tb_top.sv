@@ -257,6 +257,8 @@ module tb_top;
 
   initial begin
     uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
+    uvm_root::get().finish_on_completion = 0;   // do not call $finish at the end of the test
     run_test("regression_test");
+    $stop;                                      // hand control back to run.do for the coverage reports
   end
 endmodule

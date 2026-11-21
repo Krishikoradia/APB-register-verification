@@ -1,13 +1,13 @@
-[2026-11-21 14:50:05 UTC] qrun -batch -access=rw+/. -uvmhome uvm-1.2 '-timescale' '1ns/1ns' '+cover=bcesft+apb_reg_block' -mfcu design.sv testbench.sv '-voptargs=+acc=npr' '-coverage'  -do run.do  
+[2026-11-21 14:55:00 UTC] qrun -batch -access=rw+/. -uvmhome uvm-1.2 '-timescale' '1ns/1ns' '+cover=bcesft+apb_reg_block' -mfcu design.sv testbench.sv '-voptargs=+acc=npr' '-coverage'  -do run.do  
 QuestaSim-64 qrun 2025.2 Utility 2025.05 May 31 2025
-Start time: 09:50:05 on Nov 21,2026
+Start time: 09:55:00 on Nov 21,2026
 qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns "+cover=bcesft+apb_reg_block" -mfcu design.sv testbench.sv -voptargs="+acc=npr" -coverage -do "run.do" 
 ** Note: (qrun-220) 'modelsim.ini' is used as the ini file.
 Creating library 'qrun.out/work'.
 Mapping library 'mtiUvm' to 'qrun.out/work'.
 ** Note: (vmap-220) 'modelsim.ini' is used as the ini file.
 QuestaSim-64 vlog 2025.2 Compiler 2025.05 May 31 2025
-Start time: 09:50:05 on Nov 21,2026
+Start time: 09:55:00 on Nov 21,2026
 vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -csession=incr 
 ** Note: (vlog-220) 'modelsim.ini' is used as the ini file.
 -- Compiling package uvm_pkg (uvm-1.2 Built-in)
@@ -25,11 +25,11 @@ Top level modules:
 ** Warning: (vlog-2650) 'bind' found in compilation unit scope. Please use -mfcu -cuname to ensure that 'bind' gets elaborated.
 ** Note: (vlog-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
 -- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
-End time: 09:50:09 on Nov 21,2026, Elapsed time: 0:00:04
+End time: 09:55:04 on Nov 21,2026, Elapsed time: 0:00:04
 Errors: 0, Warnings: 1
 QuestaSim-64 vopt 2025.2 Compiler 2025.05 May 31 2025
 ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-Start time: 09:50:09 on Nov 21,2026
+Start time: 09:55:04 on Nov 21,2026
 vopt -access=rw+/. -timescale 1ns/1ns "+cover=bcesft+apb_reg_block" -mfcu "+acc=npr" -findtoplevels qrun.out/work+2+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
 ** Note: (vopt-220) 'modelsim.ini' is used as the ini file.
 
@@ -52,12 +52,12 @@ Optimizing 8 design-units (inlining 0/4 module instances):
 -- Optimizing interface apb_if(fast__2)
 -- Optimizing interface apb_if(fast)
 Optimized design name is qrun_opt
-End time: 09:50:20 on Nov 21,2026, Elapsed time: 0:00:11
+End time: 09:55:15 on Nov 21,2026, Elapsed time: 0:00:11
 Errors: 0, Warnings: 1
 # ** Note: (vsim-220) 'modelsim.ini' is used as the ini file.
 # vsim -batch -lib qrun.out/work -coverage -do "coverage save -onexit cov_$Sv_Seed.ucdb" -do "run.do" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
-# Start time: 09:50:20 on Nov 21,2026
-# Loading /tmp/root@b3f3afe6054b_dpi_36/linux_x86_64_gcc-11/export_tramp.so
+# Start time: 09:55:15 on Nov 21,2026
+# Loading /tmp/root@a1f217ae6261_dpi_34/linux_x86_64_gcc-11/export_tramp.so
 # //  Questa Sim-64
 # //  Version 2025.2 linux_x86_64 May 31 2025
 # //
@@ -82,8 +82,8 @@ Errors: 0, Warnings: 1
 # Loading work.apb_reg_block(fast)
 # Loading work.apb_sva(fast)
 # ** Note: (vsim-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
-# Compiling /tmp/root@b3f3afe6054b_dpi_36/linux_x86_64_gcc-11/exportwrapper.c
-# Loading /tmp/root@b3f3afe6054b_dpi_36/linux_x86_64_gcc-11/vsim_auto_compile.so
+# Compiling /tmp/root@a1f217ae6261_dpi_34/linux_x86_64_gcc-11/exportwrapper.c
+# Loading /tmp/root@a1f217ae6261_dpi_34/linux_x86_64_gcc-11/vsim_auto_compile.so
 # 
 # coverage save -onexit cov_$Sv_Seed.ucdb
 # do run.do
@@ -1625,13 +1625,189 @@ Errors: 0, Warnings: 1
 # [uvm_reg_bit_bash_seq]     4
 # [uvm_reg_hw_reset_seq]     4
 # 
-# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+# ** Note: $stop    : testbench.sv(262)
 #    Time: 15525 ns  Iteration: 68  Instance: /tb_top
+# Break in Module tb_top at testbench.sv line 262
+# Stopped at testbench.sv line 262
+# Coverage Report Totals BY INSTANCES: Number of Instances 7
+# 
+#     Enabled Coverage              Bins      Hits    Misses    Weight  Coverage
+#     ----------------              ----      ----    ------    ------  --------
+#     Assertions                       9         8         1         1    88.88%
+#     Branches                        16        16         0         1   100.00%
+#     Conditions                       4         4         0         1   100.00%
+#     Covergroups                      1        na        na         1   100.00%
+#         Coverpoints/Crosses          7        na        na         1        na
+#             Covergroup Bins         29        29         0         1   100.00%
+#     Directives                       2         2         0         1   100.00%
+#     Expressions                      3         3         0         1   100.00%
+#     Statements                      17        17         0         1   100.00%
+#     Toggles                        350       251        99         1    71.71%
+# Total coverage (filtered view): 95.07%
+# 
+# 
+# Coverage Report by instance with details
+# 
+# =================================================================================
+# === Instance: /tb_top/dut
+# === Design Unit: work.apb_reg_block
+# =================================================================================
+# Branch Coverage:
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Branches                        16        16         0   100.00%
+# 
+# ================================Branch Details================================
+# 
+# Branch Coverage for instance /tb_top/dut
+# 
+#     Line         Item                      Count     Source 
+#     ----         ----                      -----     ------ 
+#   File design.sv
+# ------------------------------------IF Branch------------------------------------
+#     52                                      1206     Count coming in to IF
+#     52              1                         83     
+#     52              2                       1123     
+# Branch totals: 2 hits of 2 branches = 100.00%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     57                                      1114     Count coming in to IF
+#     57              1                          2     
+#     66              1                       1112     
+# Branch totals: 2 hits of 2 branches = 100.00%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     67                                      1112     Count coming in to IF
+#     67              1                        360     
+#                                              752     All False Count
+# Branch totals: 2 hits of 2 branches = 100.00%
+# 
+# ------------------------------------CASE Branch------------------------------------
+#     68                                       360     Count coming in to CASE
+#     72              1                         82     
+#     74              1                         79     
+#     78              1                        199     
+# Branch totals: 3 hits of 3 branches = 100.00%
+# 
+# ------------------------------------IF Branch------------------------------------
+#     93                                      1458     Count coming in to IF
+#     93              1                        367     
+#                                             1091     All False Count
+# Branch totals: 2 hits of 2 branches = 100.00%
+# 
+# ------------------------------------CASE Branch------------------------------------
+#     94                                       367     Count coming in to CASE
+#     95              1                         76     
+#     96              1                         85     
+#     97              1                         79     
+#     98              1                         89     
+#     99              1                         38     
+# Branch totals: 5 hits of 5 branches = 100.00%
+# 
+# 
+# Condition Coverage:
+#     Enabled Coverage              Bins   Covered    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Conditions                       4         4         0   100.00%
+# 
+# ================================Condition Details================================
+# 
+# Condition Coverage for instance /tb_top/dut --
+# 
+#   File design.sv
+# ----------------Focused Condition View-------------------
+# Line       52 Item    1  (wr_en && (addr_dec == 12))
+# Condition totals: 2 of 2 input terms covered = 100.00%
+# 
+# ----------------Focused Condition View-------------------
+# Line       93 Item    1  (PSEL && ~PWRITE)
+# Condition totals: 2 of 2 input terms covered = 100.00%
+# 
+# 
+# Expression Coverage:
+#     Enabled Coverage              Bins   Covered    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Expressions                      3         3         0   100.00%
+# 
+# ================================Expression Details================================
+# 
+# Expression Coverage for instance /tb_top/dut --
+# 
+#   File design.sv
+# ----------------Focused Expression View-----------------
+# Line       30 Item    1  ((PSEL && PENABLE) && PWRITE)
+# Expression totals: 3 of 3 input terms covered = 100.00%
+# 
+# 
+# Statement Coverage:
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Statements                      17        17         0   100.00%
+# 
+# ================================Statement Details================================
+# 
+# Statement Coverage for instance /tb_top/dut --
+# 
+#     Line         Item                      Count     Source 
+#     ----         ----                      -----     ------ 
+#   File design.sv
+#     30              1                       2910     
+#     52              1                       1208     
+#     56              1                       1114     
+#     58              1                          2     
+#     59              1                          2     
+#     63              1                          2     
+#     65              1                          2     
+#     72              1                         82     
+#     74              1                         79     
+#     85              1                       1112     
+#     91              1                       1458     
+#     92              1                       1458     
+#     95              1                         76     
+#     96              1                         85     
+#     97              1                         79     
+#     98              1                         89     
+#     99              1                         38     
+# Toggle Coverage:
+#     Enabled Coverage              Bins      Hits    Misses  Coverage
+#     ----------------              ----      ----    ------  --------
+#     Toggles                        350       251        99    71.71%
+# 
+# ================================Toggle Details================================
+# 
+# Toggle Coverage for instance /tb_top/dut --
+# 
+#                                               Node      1H->0L      0L->1H  "Coverage"
+#                                               ---------------------------------------
+#                                         PADDR[0-1]           0           0        0.00 
+#                                         PADDR[5-7]           0           0        0.00 
+#                                             PREADY           0           0        0.00 
+#                                            PRESETn           0           1       50.00 
+#                                      addr_dec[0-1]           0           0        0.00 
+#                                      addr_dec[5-7]           0           0        0.00 
+#                                           hw_ev[1]           0           0        0.00 
+#                                           hw_ev[3]           0           0        0.00 
+#                                    int_status_q[1]           0           0        0.00 
+#                                    int_status_q[3]           0           0        0.00 
+#                                       irq_event[1]           0           0        0.00 
+#                                       irq_event[3]           0           0        0.00 
+#                                     status_q[0-31]           0           0        0.00 
+# 
+# Total Node Count     =        175 
+# Toggled Node Count   =        125 
+# Untoggled Node Count =         50 
+# 
+# Toggle Coverage      =      71.71% (251 of 350 bins)
+# 
+# 
+# Total Coverage By Instance (filtered view): 94.34%
+# 
+# 
 # SVA SUMMARY: assertion passes=5552 failures=0 | back-to-back=655 spaced=72
 # Saving coverage database on exit...
-# End time: 09:50:23 on Nov 21,2026, Elapsed time: 0:00:03
+# End time: 09:55:18 on Nov 21,2026, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
-End time: 09:50:23 on Nov 21,2026, Elapsed time: 0:00:18
+End time: 09:55:18 on Nov 21,2026, Elapsed time: 0:00:18
 *** Summary *********************************************
     qrun: Errors:   0, Warnings:   0
     vlog: Errors:   0, Warnings:   1

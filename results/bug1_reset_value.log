@@ -1,14 +1,14 @@
-[2026-11-21 09:30:45 UTC] qrun -batch -access=rw+/. -uvmhome uvm-1.2 '-timescale' '1ns/1ns' '+define+BUG1_RESET_VALU' -mfcu design.sv testbench.sv '-voptargs=+acc=npr'  -do  " run -all; exit"  
+[2026-11-21 09:40:32 UTC] qrun -batch -access=rw+/. -uvmhome uvm-1.2 '-timescale' '1ns/1ns' '+define+BUG1_RESET_VALUE' -mfcu design.sv testbench.sv '-voptargs=+acc=npr'  -do  " run -all; exit"  
 QuestaSim-64 qrun 2025.2 Utility 2025.05 May 31 2025
-Start time: 04:30:46 on Nov 21,2026
-qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns "+define+BUG1_RESET_VALU" -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Start time: 04:40:32 on Nov 21,2026
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns "+define+BUG1_RESET_VALUE" -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
 ** Note: (qrun-220) 'modelsim.ini' is used as the ini file.
 Creating library 'qrun.out/work'.
 Mapping library 'mtiUvm' to 'qrun.out/work'.
 ** Note: (vmap-220) 'modelsim.ini' is used as the ini file.
 QuestaSim-64 vlog 2025.2 Compiler 2025.05 May 31 2025
-Start time: 04:30:46 on Nov 21,2026
-vlog -timescale 1ns/1ns "+define+BUG1_RESET_VALU" -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -csession=incr 
+Start time: 04:40:32 on Nov 21,2026
+vlog -timescale 1ns/1ns "+define+BUG1_RESET_VALUE" -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -csession=incr 
 ** Note: (vlog-220) 'modelsim.ini' is used as the ini file.
 -- Compiling package uvm_pkg (uvm-1.2 Built-in)
 -- Compiling package questa_uvm_pkg
@@ -25,11 +25,11 @@ Top level modules:
 ** Warning: (vlog-2650) 'bind' found in compilation unit scope. Please use -mfcu -cuname to ensure that 'bind' gets elaborated.
 ** Note: (vlog-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
 -- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
-End time: 04:30:49 on Nov 21,2026, Elapsed time: 0:00:03
+End time: 04:40:36 on Nov 21,2026, Elapsed time: 0:00:04
 Errors: 0, Warnings: 1
 QuestaSim-64 vopt 2025.2 Compiler 2025.05 May 31 2025
 ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-Start time: 04:30:49 on Nov 21,2026
+Start time: 04:40:36 on Nov 21,2026
 vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+2+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
 ** Note: (vopt-220) 'modelsim.ini' is used as the ini file.
 
@@ -52,12 +52,12 @@ Optimizing 8 design-units (inlining 0/4 module instances):
 -- Optimizing interface apb_if(fast__2)
 -- Optimizing interface apb_if(fast)
 Optimized design name is qrun_opt
-End time: 04:30:59 on Nov 21,2026, Elapsed time: 0:00:10
+End time: 04:40:43 on Nov 21,2026, Elapsed time: 0:00:07
 Errors: 0, Warnings: 1
 # ** Note: (vsim-220) 'modelsim.ini' is used as the ini file.
 # vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
-# Start time: 04:31:00 on Nov 21,2026
-# Loading /tmp/root@8de58928be38_dpi_35/linux_x86_64_gcc-11/export_tramp.so
+# Start time: 04:40:44 on Nov 21,2026
+# Loading /tmp/root@0b038c1b7f79_dpi_35/linux_x86_64_gcc-11/export_tramp.so
 # //  Questa Sim-64
 # //  Version 2025.2 linux_x86_64 May 31 2025
 # //
@@ -82,8 +82,8 @@ Errors: 0, Warnings: 1
 # Loading work.apb_reg_block(fast)
 # Loading work.apb_sva(fast)
 # ** Note: (vsim-7082) For C/C++ auto compile, choosing compiler /usr/bin/g++ set from the PATH environment variable.
-# Compiling /tmp/root@8de58928be38_dpi_35/linux_x86_64_gcc-11/exportwrapper.c
-# Loading /tmp/root@8de58928be38_dpi_35/linux_x86_64_gcc-11/vsim_auto_compile.so
+# Compiling /tmp/root@0b038c1b7f79_dpi_35/linux_x86_64_gcc-11/exportwrapper.c
+# Loading /tmp/root@0b038c1b7f79_dpi_35/linux_x86_64_gcc-11/vsim_auto_compile.so
 # 
 # run -all
 # UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
@@ -120,8 +120,11 @@ Errors: 0, Warnings: 1
 # UVM_INFO apb_monitor.sv(35) @ 65000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x0c data=0x00000000 gap=5
 # UVM_INFO apb_driver.sv(40) @ 65000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x0c data=0x00000000
 # UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 65000: reporter@@rst_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.data in map "regmodel.default_map"...
-# UVM_INFO apb_monitor.sv(35) @ 85000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x000000ff gap=0
-# UVM_INFO apb_driver.sv(40) @ 85000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x000000ff
+# UVM_INFO apb_monitor.sv(35) @ 85000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x08 data=0x00000000 gap=0
+# UVM_ERROR apb_scoreboard.sv(43) @ 85000: uvm_test_top.env.scb [SCB] READ MISMATCH addr=0x08 got=0x00000000 exp=0x000000ff
+# UVM_INFO apb_driver.sv(40) @ 85000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x08 data=0x00000000
+# UVM_ERROR /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg.svh(2896) @ 85000: reporter [RegModel] Register "regmodel.data" value read from DUT (0x0000000000000000) does not match mirrored value (0x00000000000000ff)
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/uvm_reg.svh(2909) @ 85000: reporter [RegModel] Field data (regmodel.data[31:0]) mismatch read=32'h0 mirrored=32'hff 
 # UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/reg/sequences/uvm_reg_hw_reset_seq.svh(128) @ 85000: reporter@@rst_seq [uvm_reg_hw_reset_seq] Verifying reset value of register regmodel.status in map "regmodel.default_map"...
 # UVM_INFO apb_monitor.sv(35) @ 105000: uvm_test_top.env.agent.monitor [MON] READ  addr=0x04 data=0x00000001 gap=0
 # UVM_INFO apb_driver.sv(40) @ 105000: uvm_test_top.env.agent.driver [DRV] READ  addr=0x04 data=0x00000001
@@ -1600,14 +1603,14 @@ Errors: 0, Warnings: 1
 # UVM_INFO apb_coverage.sv(62) @ 15525000: uvm_test_top.env.cov [COV] cp_w1c_mask    = 100.00%
 # UVM_INFO apb_coverage.sv(63) @ 15525000: uvm_test_top.env.cov [COV] cp_gap         = 100.00%
 # UVM_INFO apb_coverage.sv(64) @ 15525000: uvm_test_top.env.cov [COV] FUNCTIONAL COVERAGE (whole covergroup) = 100.00%
-# UVM_INFO apb_scoreboard.sv(50) @ 15525000: uvm_test_top.env.scb [SCB] SCOREBOARD read checks=367 mismatches=0
+# UVM_INFO apb_scoreboard.sv(50) @ 15525000: uvm_test_top.env.scb [SCB] SCOREBOARD read checks=367 mismatches=1
 # UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 15525000: reporter [UVM/REPORT/SERVER] 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO : 1488
+# UVM_INFO : 1489
 # UVM_WARNING :    0
-# UVM_ERROR :    0
+# UVM_ERROR :    2
 # UVM_FATAL :    0
 # ** Report counts by id
 # [COV]     8
@@ -1617,7 +1620,8 @@ Errors: 0, Warnings: 1
 # [Questa UVM]     2
 # [RAL]     4
 # [RNTST]     1
-# [SCB]     1
+# [RegModel]     2
+# [SCB]     2
 # [STARTING_SEQ]     2
 # [TEST_DONE]     1
 # [UVM/RELNOTES]     1
@@ -1627,9 +1631,9 @@ Errors: 0, Warnings: 1
 # ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
 #    Time: 15525 ns  Iteration: 68  Instance: /tb_top
 # SVA SUMMARY: assertion passes=5552 failures=0 | back-to-back=655 spaced=72
-# End time: 04:31:03 on Nov 21,2026, Elapsed time: 0:00:03
+# End time: 04:40:46 on Nov 21,2026, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
-End time: 04:31:03 on Nov 21,2026, Elapsed time: 0:00:17
+End time: 04:40:46 on Nov 21,2026, Elapsed time: 0:00:14
 *** Summary *********************************************
     qrun: Errors:   0, Warnings:   0
     vlog: Errors:   0, Warnings:   1
